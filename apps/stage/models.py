@@ -26,6 +26,7 @@ class Stage(models.Model):
 
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
+    strength_modulus = models.FloatField("怪物强度系数", default=2)
 
     battle = models.ForeignKey(Battle, verbose_name="所属战役")
 
@@ -77,6 +78,7 @@ class EliteStage(models.Model):
     name = models.CharField("名字", max_length=32)
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级", default=1)
+    strength_modulus = models.FloatField("怪物强度系数", default=2)
 
     times = models.IntegerField("次数限制")
 
