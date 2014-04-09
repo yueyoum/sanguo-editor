@@ -1,0 +1,8 @@
+*.pyc
+*.swp
+*.bak
+*.example
+
+env
+.idea
+
