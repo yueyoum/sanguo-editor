@@ -70,7 +70,7 @@ WSGI_APPLICATION = 'editor.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sanguo_editor',
+        'NAME': 'sanguo_editor_new',
         'USER': 'root',
         'PASSWORD': 'root',
         'HOST': '127.0.0.1',

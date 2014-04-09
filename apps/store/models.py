@@ -2,8 +2,6 @@
 
 from django.db import models
 
-from utils import cache
-
 
 STORE_TAG = (
     (1, '促销'),
@@ -49,25 +47,6 @@ class Store(models.Model):
         db_table = 'store'
         verbose_name = "商城"
         verbose_name_plural = "商城"
-
-    @staticmethod
-    def all():
-        data = cache.get('store')
-        if data:
-            return data
-        return save_store_cache()
-
-    @staticmethod
-    def update_cache():
-        return save_store_cache()
-
-
-
-def save_store_cache(*args, **kwargs):
-    ss = Store.objects.all()
-    data = {s.id: s for s in ss}
-    cache.set('store', data, expire=None)
-    return data
 
 
 class StoreBuyLog(models.Model):
