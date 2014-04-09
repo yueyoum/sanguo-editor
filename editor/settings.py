@@ -43,7 +43,6 @@ INSTALLED_APPS = (
     'apps.achievement',
     'apps.config',
     'apps.hero',
-    'apps.mail',
     'apps.official',
     'apps.skill',
     'apps.stage',
