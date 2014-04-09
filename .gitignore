@@ -1,7 +1,8 @@
 *.pyc
 *.swp
 *.bak
-*.example
+
+uwsgi.ini
 
 env
 .idea
