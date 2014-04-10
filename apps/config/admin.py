@@ -8,7 +8,8 @@ from apps.config.models import CharInit, ArenaReward, Notify, FunctionOpen,  Dia
 class CharInitAdmin(admin.ModelAdmin):
     list_display = (
         'gold', 'sycee',
-        'heros', 'gems', 'stuffs'
+        'heros', 'gems', 'stuffs',
+        'extra_hero',
     )
 
 class ArenaRewardResources(resources.ModelResource):
