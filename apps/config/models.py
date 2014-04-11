@@ -79,6 +79,7 @@ class FunctionOpen(models.Model):
 
     func_id = models.IntegerField("开启功能", choices=FUNC_ID, null=True, blank=True)
     socket_amount = models.IntegerField("上阵人数", choices=SOCKET_AMOUNT, null=True, blank=True)
+    text = models.CharField("提示文字", max_length=255)
 
     class Meta:
         db_table = 'function_open'
