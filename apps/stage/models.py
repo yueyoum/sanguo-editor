@@ -30,7 +30,7 @@ class Stage(models.Model):
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
     strength_modulus = models.FloatField("怪物强度系数", default=2)
-    tp = models.IntegerField("挂机掉落类型", choices=STAGE_TP)
+    tp = models.IntegerField("类型", choices=STAGE_TP)
 
     battle = models.ForeignKey(Battle, verbose_name="所属战役")
 
