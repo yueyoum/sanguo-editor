@@ -21,12 +21,16 @@ class Battle(models.Model):
 
 
 class Stage(models.Model):
+    STAGE_TP = (
+        (1, '经验'), (2, '金币'), (3, '宝石'), (4, '材料'), (5, '卡魂')
+    )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
 
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
     strength_modulus = models.FloatField("怪物强度系数", default=2)
+    tp = models.IntegerField("挂机掉落类型", choices=STAGE_TP)
 
     battle = models.ForeignKey(Battle, verbose_name="所属战役")
 
