@@ -58,7 +58,7 @@ class DialogAdmin(admin.ModelAdmin):
 
     inlines = [DialogStatementinline,]
 
-    list_filter = ('stage_id', )
+    list_filter = ('stage', )
 
 
 admin.site.register(CharInit, CharInitAdmin)
