@@ -43,7 +43,7 @@ class Hero(models.Model):
     anger = models.IntegerField("怒气", default=50)
 
     def __unicode__(self):
-        return u'<Hero: %s>' % self.name
+        return self.name
 
 
     class Meta:

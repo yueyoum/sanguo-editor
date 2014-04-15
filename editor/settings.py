@@ -47,6 +47,7 @@ INSTALLED_APPS = (
     'apps.skill',
     'apps.stage',
     'apps.task',
+    'apps.goodspackage',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,6 +77,10 @@ DATABASES = {
         'PORT': 3306,
     }
 }
+
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'fixtures'),
+)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/

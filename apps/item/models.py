@@ -29,7 +29,7 @@ class Equipment(models.Model):
     growing = models.IntegerField("成长系数")
 
     def __unicode__(self):
-        return u'<装备: %s>' % self.name
+        return self.name
 
 
     class Meta:
@@ -56,7 +56,7 @@ class Gem(models.Model):
     sell_gold = models.IntegerField("售卖所的金币")
 
     def __unicode__(self):
-        return u'<宝石: %s>' % self.name
+        return self.name
 
 
     class Meta:
@@ -83,7 +83,7 @@ class Stuff(models.Model):
     value = models.IntegerField("值", null=True, blank=True)
 
     def __unicode__(self):
-        return u'<材料: %s>' % self.name
+        return self.name
 
 
     class Meta:
