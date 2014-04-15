@@ -2,6 +2,8 @@
 
 from django.db import models
 
+from apps.hero.models import Hero
+
 
 # 角色初始化
 class CharInit(models.Model):
@@ -109,8 +111,16 @@ class Dialog(models.Model):
         (1, '开始'),
         (2, '结束'),
     )
+
+    GROUND = (
+        (0, '整场战斗'),
+        (1, '第一军'),
+        (2, '第二军'),
+        (3, '第三军'),
+    )
+
     stage_id = models.IntegerField("关卡ID")
-    ground_id = models.IntegerField("哪一军")
+    ground_id = models.IntegerField("位于", choices=GROUND)
     start_at = models.IntegerField("开始于", choices=START_AT)
 
     class Meta:
@@ -128,7 +138,7 @@ class DialogStatement(models.Model):
 
     dialog = models.ForeignKey(Dialog)
     position = models.IntegerField("位置", choices=POSITION)
-    who = models.IntegerField("武将ID")
+    who = models.ForeignKey(Hero, verbose_name='武将')
     speech = models.CharField("发言", max_length=255)
 
     class Meta:
