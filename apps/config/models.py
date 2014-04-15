@@ -3,6 +3,7 @@
 from django.db import models
 
 from apps.hero.models import Hero
+from apps.stage.models import Stage
 
 
 # 角色初始化
@@ -119,7 +120,7 @@ class Dialog(models.Model):
         (3, '第三军'),
     )
 
-    stage_id = models.IntegerField("关卡ID")
+    stage = models.ForeignKey(Stage, verbose_name="关卡", null=True, blank=True)
     ground_id = models.IntegerField("位于", choices=GROUND)
     start_at = models.IntegerField("开始于", choices=START_AT)
 
@@ -138,7 +139,7 @@ class DialogStatement(models.Model):
 
     dialog = models.ForeignKey(Dialog)
     position = models.IntegerField("位置", choices=POSITION)
-    who = models.ForeignKey(Hero, verbose_name='武将')
+    who = models.ForeignKey(Hero, verbose_name='武将', db_column='who', null=True, blank=True)
     speech = models.CharField("发言", max_length=255)
 
     class Meta:
