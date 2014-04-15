@@ -42,7 +42,7 @@ class FunctionDefineAdmin(admin.ModelAdmin):
 
 class FunctionOpenAdmin(admin.ModelAdmin):
     list_display = (
-        'char_level', 'stage_id', 'func_id', 'socket_amount', 'text'
+        'char_level', 'stage_id', 'func', 'socket_amount', 'text'
     )
 
 
