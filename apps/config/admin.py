@@ -3,7 +3,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from apps.config.models import CharInit, ArenaReward, Notify, FunctionOpen,  Dialog, DialogStatement
+from apps.config.models import CharInit, ArenaReward, Notify, FunctionOpen,  Dialog, DialogStatement, FunctionDefine
 
 class CharInitAdmin(admin.ModelAdmin):
     list_display = (
@@ -35,6 +35,11 @@ class NotifyAdmin(ImportExportModelAdmin):
 
     resource_class = NotifyResources
 
+class FunctionDefineAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'name'
+    )
+
 class FunctionOpenAdmin(admin.ModelAdmin):
     list_display = (
         'char_level', 'stage_id', 'func_id', 'socket_amount', 'text'
@@ -59,5 +64,6 @@ class DialogAdmin(admin.ModelAdmin):
 admin.site.register(CharInit, CharInitAdmin)
 admin.site.register(ArenaReward, ArenaRewardAdmin)
 admin.site.register(Notify, NotifyAdmin)
+admin.site.register(FunctionDefine, FunctionDefineAdmin)
 admin.site.register(FunctionOpen, FunctionOpenAdmin)
 admin.site.register(Dialog, DialogAdmin)

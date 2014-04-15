@@ -48,6 +48,20 @@ class Notify(models.Model):
         verbose_name_plural = '消息模板'
 
 
+# 功能
+class FunctionDefine(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField("名字", max_length=16)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        db_table = 'function_define'
+        ordering = ('id',)
+        verbose_name = '功能'
+        verbose_name_plural = '功能'
+
 # 功能开放
 class FunctionOpen(models.Model):
     FUNC_ID = (
@@ -67,7 +81,6 @@ class FunctionOpen(models.Model):
     )
 
     SOCKET_AMOUNT = (
-        (4, '上阵四人'),
         (5, '上阵五人'),
         (6, '上阵六人'),
         (7, '上阵七人'),
@@ -77,7 +90,8 @@ class FunctionOpen(models.Model):
     char_level = models.IntegerField("君主等级条件", default=0)
     stage_id = models.IntegerField("关卡ID条件", default=0)
 
-    func_id = models.IntegerField("开启功能", choices=FUNC_ID, null=True, blank=True)
+    func = models.ForeignKey(FunctionDefine, verbose_name='开启功能', null=True, blank=True)
+
     socket_amount = models.IntegerField("上阵人数", choices=SOCKET_AMOUNT, null=True, blank=True)
     text = models.CharField("提示文字", max_length=255)
 
