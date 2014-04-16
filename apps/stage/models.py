@@ -22,7 +22,7 @@ class Battle(models.Model):
 
 class Stage(models.Model):
     STAGE_TP = (
-        (1, '经验'), (2, '金币'), (3, '宝石'), (4, '材料'), (5, '卡魂')
+        (0, '普通'), (1, '经验'), (2, '金币'), (3, '宝石'), (4, '材料'), (5, '卡魂')
     )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
