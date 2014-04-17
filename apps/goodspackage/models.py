@@ -6,6 +6,7 @@ from apps.hero.models import Hero
 from apps.item.models import Equipment, Gem, Stuff
 
 class Package(models.Model):
+    name = models.CharField(max_length=64)
     heros = models.ManyToManyField(Hero, through='HeroInfo', related_name='package_heros')
     herosouls = models.ManyToManyField(Hero, through='HeroSoulInfo', related_name='package_hero_souls')
     equips = models.ManyToManyField(Equipment, through='EquipInfo', related_name='package_equips')
@@ -15,6 +16,9 @@ class Package(models.Model):
     sycee = models.IntegerField(default=0, verbose_name='元宝')
     exp = models.IntegerField(default=0, verbose_name='经验')
     official_exp = models.IntegerField(default=0, verbose_name='官职经验')
+
+    def __unicode__(self):
+        return self.name
 
     class Meta:
         db_table = 'package'

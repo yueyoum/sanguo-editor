@@ -37,7 +37,7 @@ class PackageAdmin(admin.ModelAdmin):
         GemInfoInline, StuffInfoInline
     )
 
-    list_display = ('id', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'HeroSouls', 'Equips', 'Gems', 'Stuffs')
+    list_display = ('id', 'name', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'HeroSouls', 'Equips', 'Gems', 'Stuffs')
 
     def Heros(self, obj):
         data = obj.heroinfo_set.all()
