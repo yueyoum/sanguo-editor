@@ -6,6 +6,7 @@ from apps.hero.models import Hero
 from apps.item.models import Equipment, Gem, Stuff
 
 class Package(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
     heros = models.ManyToManyField(Hero, through='HeroInfo', related_name='package_heros')
     herosouls = models.ManyToManyField(Hero, through='HeroSoulInfo', related_name='package_hero_souls')
