@@ -11,11 +11,11 @@ class CharInit(models.Model):
     gold = models.IntegerField("金币", default=0)
     sycee = models.IntegerField("元宝", default=0)
 
-    heros = models.CharField("武将", max_length=255, help_text="武将:武器,防具,饰品|武将:武器,防具,饰品")
-    gems = models.CharField("宝石", max_length=255, help_text="id:amount,id:amount,id:amount")
-    stuffs = models.CharField("杂物", max_length=255, help_text="id:amount,id:amount,id:amount")
+    heros = models.CharField("武将", max_length=255, help_text="武将:武器,防具,饰品|武将:武器,防具,饰品", blank=True)
+    gems = models.CharField("宝石", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
+    stuffs = models.CharField("杂物", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
 
-    extra_hero = models.IntegerField("额外武将")
+    extra_hero = models.IntegerField("额外武将", null=True, blank=True)
 
     class Meta:
         db_table = 'config_charinit'
