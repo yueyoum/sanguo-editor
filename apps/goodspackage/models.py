@@ -9,10 +9,10 @@ from apps.item.models import Equipment, Gem, Stuff
 class Package(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
-    herosouls = models.ManyToManyField(Hero, through='HeroSoulInfo', related_name='package_hero_souls')
-    equips = models.ManyToManyField(Equipment, through='EquipInfo', related_name='package_equips')
-    gems = models.ManyToManyField(Gem, through='GemInfo', related_name='package_gems')
-    stuffs = models.ManyToManyField(Stuff, through='StuffInfo', related_name='package_stuffs')
+    heros = models.ManyToManyField(Hero, through='HeroInfo')
+    equips = models.ManyToManyField(Equipment, through='EquipInfo')
+    gems = models.ManyToManyField(Gem, through='GemInfo')
+    stuffs = models.ManyToManyField(Stuff, through='StuffInfo')
 
     gold = models.IntegerField(default=0, verbose_name="金币")
     sycee = models.IntegerField(default=0, verbose_name='元宝')
@@ -36,10 +36,10 @@ class Package(models.Model):
             'official_exp': self.official_exp,
         }
 
-        souls = self.herosoulinfo_set.all()
-        souls_data = []
-        for s in souls:
-            souls_data.append({
+        heros = self.heroinfo_set.all()
+        heros_data = []
+        for s in heros:
+            heros_data.append({
                 'id': s.soul.id,
                 'amount': s.amount,
                 'prob': s.prob,
@@ -74,7 +74,7 @@ class Package(models.Model):
             })
 
 
-        data['souls'] = souls_data
+        data['heros'] = heros_data
         data['equipments'] = equips_data
         data['gems'] = gems_data
         data['stuffs'] = stuffs_data
@@ -82,14 +82,14 @@ class Package(models.Model):
 
 
 
-class HeroSoulInfo(models.Model):
-    soul = models.ForeignKey(Hero)
+class HeroInfo(models.Model):
+    hero = models.ForeignKey(Hero)
     package = models.ForeignKey(Package)
     amount = models.IntegerField(default=1, verbose_name='数量')
     prob = models.IntegerField(default=100000, verbose_name='概率')
 
     class Meta:
-        db_table = 'package_hero_soul_info'
+        db_table = 'package_hero_info'
 
 
 class EquipInfo(models.Model):
