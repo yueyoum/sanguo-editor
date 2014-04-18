@@ -3,6 +3,7 @@
 *.bak
 
 uwsgi.ini
+fixtures
 
 env
 .idea

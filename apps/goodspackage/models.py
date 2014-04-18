@@ -13,6 +13,7 @@ class Package(models.Model):
     equips = models.ManyToManyField(Equipment, through='EquipInfo', related_name='package_equips')
     gems = models.ManyToManyField(Gem, through='GemInfo', related_name='package_gems')
     stuffs = models.ManyToManyField(Stuff, through='StuffInfo', related_name='package_stuffs')
+
     gold = models.IntegerField(default=0, verbose_name="金币")
     sycee = models.IntegerField(default=0, verbose_name='元宝')
     exp = models.IntegerField(default=0, verbose_name='经验')
@@ -25,6 +26,78 @@ class Package(models.Model):
         db_table = 'package'
         verbose_name = "物品包"
         verbose_name_plural = "物品包"
+
+
+    def export_data(self):
+        data = {
+            'gold': self.gold,
+            'sycee': self.sycee,
+            'exp': self.exp,
+            'official_exp': self.official_exp,
+        }
+
+        heros = self.heroinfo_set.all()
+        heros_data = []
+        for h in heros:
+            heros_data.append({
+                'id': h.hero.id,
+                'level': h.level,
+                'step': h.step,
+                'amount': h.amount,
+                'prob': h.prob,
+            })
+
+        souls = self.herosoulinfo_set.all()
+        souls_data = []
+        for s in souls:
+            souls_data.append({
+                'id': s.soul.id,
+                'amount': s.amount,
+                'prob': s.prob,
+            })
+
+        equips = self.equipinfo_set.all()
+        equips_data = []
+        for e in equips:
+            equips_data.append({
+                'id': e.equip.id,
+                'level': e.level,
+                'amount': e.amount,
+                'prob': e.prob,
+            })
+
+        gems = self.geminfo_set.all()
+        gems_data = []
+        for g in gems:
+            gems_data.append({
+                'id': g.gem.id,
+                'amount': g.amount,
+                'prob': g.prob,
+            })
+
+        stuffs = self.stuffinfo_set.all()
+        stuffs_data = []
+        for s in stuffs:
+            stuffs_data.append({
+                'id': s.stuff.id,
+                'amount': s.amount,
+                'prob': s.prob,
+            })
+
+        data['heros'] = heros_data
+        data['souls'] = souls_data
+        data['equipments'] = equips_data
+        data['gems'] = gems_data
+        data['stuffs'] = stuffs_data
+        return data
+
+
+
+
+
+
+
+
 
 
 class HeroInfo(models.Model):
