@@ -83,7 +83,7 @@ class Package(models.Model):
 
 
 class HeroInfo(models.Model):
-    hero = models.ForeignKey(Hero)
+    soul = models.ForeignKey(Hero)
     package = models.ForeignKey(Package)
     amount = models.IntegerField(default=1, verbose_name='数量')
     prob = models.IntegerField(default=100000, verbose_name='概率')
