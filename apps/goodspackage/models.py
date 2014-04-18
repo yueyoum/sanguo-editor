@@ -5,10 +5,10 @@ from django.db import models
 from apps.hero.models import Hero
 from apps.item.models import Equipment, Gem, Stuff
 
+
 class Package(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
-    heros = models.ManyToManyField(Hero, through='HeroInfo', related_name='package_heros')
     herosouls = models.ManyToManyField(Hero, through='HeroSoulInfo', related_name='package_hero_souls')
     equips = models.ManyToManyField(Equipment, through='EquipInfo', related_name='package_equips')
     gems = models.ManyToManyField(Gem, through='GemInfo', related_name='package_gems')
@@ -35,17 +35,6 @@ class Package(models.Model):
             'exp': self.exp,
             'official_exp': self.official_exp,
         }
-
-        heros = self.heroinfo_set.all()
-        heros_data = []
-        for h in heros:
-            heros_data.append({
-                'id': h.hero.id,
-                'level': h.level,
-                'step': h.step,
-                'amount': h.amount,
-                'prob': h.prob,
-            })
 
         souls = self.herosoulinfo_set.all()
         souls_data = []
@@ -84,32 +73,13 @@ class Package(models.Model):
                 'prob': s.prob,
             })
 
-        data['heros'] = heros_data
+
         data['souls'] = souls_data
         data['equipments'] = equips_data
         data['gems'] = gems_data
         data['stuffs'] = stuffs_data
         return data
 
-
-
-
-
-
-
-
-
-
-class HeroInfo(models.Model):
-    hero = models.ForeignKey(Hero)
-    package = models.ForeignKey(Package)
-    level = models.IntegerField(default=1, verbose_name='强化等级')
-    step = models.IntegerField(default=0, verbose_name='进阶阶数')
-    amount = models.IntegerField(default=1, verbose_name='数量')
-    prob = models.IntegerField(default=100000, verbose_name='概率')
-
-    class Meta:
-        db_table = 'package_hero_info'
 
 
 class HeroSoulInfo(models.Model):

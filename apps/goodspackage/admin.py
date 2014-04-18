@@ -4,16 +4,12 @@ from django.contrib import admin
 
 from apps.goodspackage.models import (
     Package,
-    HeroInfo,
     HeroSoulInfo,
     EquipInfo,
     GemInfo,
     StuffInfo,
 )
 
-class HeroInfoInline(admin.TabularInline):
-    model = HeroInfo
-    extra = 1
 
 class HeroSoulInfoInline(admin.TabularInline):
     model = HeroSoulInfo
@@ -33,22 +29,12 @@ class StuffInfoInline(admin.TabularInline):
 
 class PackageAdmin(admin.ModelAdmin):
     inlines = (
-        HeroInfoInline, HeroSoulInfoInline, EquipInfoInline,
+        HeroSoulInfoInline, EquipInfoInline,
         GemInfoInline, StuffInfoInline
     )
 
-    list_display = ('id', 'name', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'HeroSouls', 'Equips', 'Gems', 'Stuffs')
+    list_display = ('id', 'name', 'gold', 'sycee', 'exp', 'official_exp', 'HeroSouls', 'Equips', 'Gems', 'Stuffs')
 
-    def Heros(self, obj):
-        data = obj.heroinfo_set.all()
-        def _make_text(x):
-            text = u'{0}, 等级: {1}, 阶数: {2}, 数量: {3}, 概率: {4}'.format(
-                x.hero.name, x.level, x.step, x.amount, x.prob
-            )
-            return text
-        texts = [_make_text(x) for x in data]
-        return '<br />'.join(texts)
-    Heros.allow_tags = True
 
     def HeroSouls(self, obj):
         data = obj.herosoulinfo_set.all()
