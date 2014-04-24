@@ -64,7 +64,7 @@ class StageAdmin(ImportExportModelAdmin):
             line_p = 0
             for m in line:
                 if m == 0:
-                    line_text.append(0)
+                    line_text.append('0')
                 else:
                     mobj = Monster.objects.get(id=m)
                     mp = monster_power(mobj, obj.level)
@@ -116,7 +116,7 @@ class EliteStageAdmin(ImportExportModelAdmin):
             line_p = 0
             for m in line:
                 if m == 0:
-                    line_text.append(0)
+                    line_text.append('0')
                 else:
                     mobj = Monster.objects.get(id=m)
                     mp = monster_power(mobj, obj.level)
