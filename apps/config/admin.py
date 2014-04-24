@@ -11,8 +11,6 @@ from apps.config.models import (
     Dialog,
     DialogStatement,
     FunctionDefine,
-    SecretarySpeechType,
-    SecretarySpeech,
 )
 
 class CharInitAdmin(admin.ModelAdmin):
@@ -72,18 +70,6 @@ class DialogAdmin(admin.ModelAdmin):
 
 
 
-class SecretarySpeechTypeAdmin(admin.ModelAdmin):
-    list_display = (
-        'id', 'name',
-    )
-
-
-class SecretarySpeechAdmin(admin.ModelAdmin):
-    list_display = (
-        'id', 'content', 'tp', 'param',
-    )
-
-
 
 admin.site.register(CharInit, CharInitAdmin)
 admin.site.register(ArenaReward, ArenaRewardAdmin)
@@ -91,6 +77,4 @@ admin.site.register(Notify, NotifyAdmin)
 admin.site.register(FunctionDefine, FunctionDefineAdmin)
 admin.site.register(FunctionOpen, FunctionOpenAdmin)
 admin.site.register(Dialog, DialogAdmin)
-admin.site.register(SecretarySpeechType, SecretarySpeechTypeAdmin)
-admin.site.register(SecretarySpeech, SecretarySpeechAdmin)
 

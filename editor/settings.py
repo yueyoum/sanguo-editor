@@ -48,6 +48,7 @@ INSTALLED_APPS = (
     'apps.stage',
     'apps.task',
     'apps.goodspackage',
+    'apps.client_config',
 )
 
 MIDDLEWARE_CLASSES = (

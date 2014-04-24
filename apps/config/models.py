@@ -167,32 +167,3 @@ class GameGuide(models.Model):
         verbose_name_plural = '新手引导'
 
 
-# 小秘书说话
-class SecretarySpeechType(models.Model):
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=32)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'secretary_speech_type'
-        ordering = ('id',)
-        verbose_name = '小秘书说话类型'
-        verbose_name_plural = '小秘书说话类型'
-
-
-class SecretarySpeech(models.Model):
-    id = models.IntegerField(primary_key=True)
-    content = models.CharField(max_length=255)
-    tp = models.ForeignKey(SecretarySpeechType, db_column='type')
-    param = models.IntegerField(default=0)
-
-    class Meta:
-        db_table = 'secretary_speech'
-        ordering = ('id',)
-        verbose_name = '小秘书说话'
-        verbose_name_plural = '小秘书说话'
-
-
-
