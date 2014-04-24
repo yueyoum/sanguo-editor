@@ -172,6 +172,9 @@ class SecretarySpeechType(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=32)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         db_table = 'secretary_speech_type'
         ordering = ('id',)
