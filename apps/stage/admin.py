@@ -5,6 +5,8 @@ from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
 from apps.stage.models import Battle, Stage, StageDrop, EliteStage, ChallengeStage
+from apps.hero.models import Monster
+from libs.hero import monster_power
 
 class BattleResources(resources.ModelResource):
     class Meta:
@@ -33,7 +35,7 @@ class BattleAdmin(ImportExportModelAdmin):
 class StageAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'bg', 'level', 'strength_modulus', 'tp', 'battle',
-        'open_condition', 'Monsters',
+        'open_condition', 'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop',
         'first_exp', 'first_gold', 'first_drop',
         'star_exp', 'star_gold', 'star_drop',
@@ -53,6 +55,32 @@ class StageAdmin(ImportExportModelAdmin):
     Monsters.short_description = "怪物ID"
 
 
+    def Powers(self, obj):
+        ms = [int(i) for i in obj.monsters.split(',')]
+        text = []
+        p = 0
+        for line in zip(ms[::3], ms[1::3], ms[2::3]):
+            line_text = []
+            line_p = 0
+            for m in line:
+                if m == 0:
+                    line_text.append(0)
+                else:
+                    mobj = Monster.objects.get(id=m)
+                    mp = monster_power(mobj, obj.level)
+                    line_p += mp
+                    p += mp
+                    line_text.append(mp)
+
+            line_text.append(" | {0}".format(line_p))
+            text.append(', '.join(line_text))
+
+        text.append('-' * 6)
+        text.append(str(p))
+        return "<br />".join(text)
+
+
+
 class StageDropAdmin(ImportExportModelAdmin):
     list_display = ('id', 'equips', 'gems', 'stuffs')
     resource_class = StageDropResources
@@ -61,7 +89,7 @@ class StageDropAdmin(ImportExportModelAdmin):
 class EliteStageAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'bg', 'level', 'strength_modulus', 'times',
-        'open_condition', 'Monsters',
+        'open_condition', 'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop',
     )
 
@@ -76,6 +104,34 @@ class EliteStageAdmin(ImportExportModelAdmin):
         return "<br />".join(text)
     Monsters.allow_tags = True
     Monsters.short_description = "怪物ID"
+
+
+    def Powers(self, obj):
+        ms = [int(i) for i in obj.monsters.split(',')]
+        text = []
+        p = 0
+        for line in zip(ms[::3], ms[1::3], ms[2::3]):
+            line_text = []
+            line_p = 0
+            for m in line:
+                if m == 0:
+                    line_text.append(0)
+                else:
+                    mobj = Monster.objects.get(id=m)
+                    mp = monster_power(mobj, obj.level)
+                    line_p += mp
+                    p += mp
+                    line_text.append(mp)
+
+            line_text.append(" | {0}".format(line_p))
+            text.append(', '.join(line_text))
+
+        text.append('-' * 6)
+        text.append(str(p))
+        return "<br />".join(text)
+
+
+
 
 
 class ChallengeStageAdmin(ImportExportModelAdmin):
