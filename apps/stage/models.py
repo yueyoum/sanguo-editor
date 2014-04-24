@@ -10,7 +10,7 @@ class Battle(models.Model):
     des = models.TextField("描述", blank=True)
 
     def __unicode__(self):
-        return u'<Battle: %s>' % self.name
+        return self.name
 
     class Meta:
         db_table = 'battle'
@@ -27,12 +27,12 @@ class Stage(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
 
-    bg = models.CharField("背景图片", max_length=32, blank=True)
+    bg = models.CharField("背景", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
-    strength_modulus = models.FloatField("怪物强度系数", default=2)
+    strength_modulus = models.FloatField("强度系数", default=2)
     tp = models.IntegerField("类型", choices=STAGE_TP)
 
-    battle = models.ForeignKey(Battle, verbose_name="所属战役")
+    battle = models.ForeignKey(Battle, verbose_name="战役")
 
     open_condition = models.IntegerField("前置关卡ID", null=True, blank=True,
                                          help_text="不填写表示没有前置关卡ID"

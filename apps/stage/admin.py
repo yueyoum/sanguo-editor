@@ -70,7 +70,7 @@ class StageAdmin(ImportExportModelAdmin):
                     mp = monster_power(mobj, obj.level)
                     line_p += mp
                     p += mp
-                    line_text.append(mp)
+                    line_text.append(str(mp))
 
             line_text.append(" | {0}".format(line_p))
             text.append(', '.join(line_text))
@@ -78,6 +78,7 @@ class StageAdmin(ImportExportModelAdmin):
         text.append('-' * 6)
         text.append(str(p))
         return "<br />".join(text)
+    Powers.allow_tags = True
 
 
 
@@ -121,7 +122,7 @@ class EliteStageAdmin(ImportExportModelAdmin):
                     mp = monster_power(mobj, obj.level)
                     line_p += mp
                     p += mp
-                    line_text.append(mp)
+                    line_text.append(str(mp))
 
             line_text.append(" | {0}".format(line_p))
             text.append(', '.join(line_text))
@@ -129,7 +130,7 @@ class EliteStageAdmin(ImportExportModelAdmin):
         text.append('-' * 6)
         text.append(str(p))
         return "<br />".join(text)
-
+    Powers.allow_tags = True
 
 
 
