@@ -2,6 +2,25 @@
 
 from django.db import models
 
+class NameFirst(models.Model):
+    id = models.IntegerField(primary_key=True)
+    first = models.CharField(max_length=16)
+
+    class Meta:
+        db_table = 'name_first'
+        ordering = ('id',)
+
+
+class NameSecond(models.Model):
+    id = models.IntegerField(primary_key=True)
+    second = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'name_second'
+        ordering = ('id',)
+
+
+
 # 小秘书说话
 class SecretarySpeechType(models.Model):
     id = models.IntegerField(primary_key=True)

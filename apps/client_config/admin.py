@@ -1,6 +1,16 @@
 from django.contrib import admin
 
-from apps.client_config.models import SecretarySpeechType, SecretarySpeech, GlobalInteger, GlobalString
+from apps.client_config.models import SecretarySpeechType, SecretarySpeech, GlobalInteger, GlobalString, NameFirst, NameSecond
+
+class NameFirstAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'first'
+    )
+
+class NameSecondAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'second'
+    )
 
 class SecretarySpeechTypeAdmin(admin.ModelAdmin):
     list_display = (
@@ -24,7 +34,8 @@ class GlobalStringAdmin(admin.ModelAdmin):
         'id', 'enum', 'ss', 'desc'
     )
 
-
+admin.site.register(NameFirst, NameFirstAdmin)
+admin.site.register(NameSecond, NameSecondAdmin)
 admin.site.register(SecretarySpeechType, SecretarySpeechTypeAdmin)
 admin.site.register(SecretarySpeech, SecretarySpeechAdmin)
 admin.site.register(GlobalInteger, GlobalIntegerAdmin)
