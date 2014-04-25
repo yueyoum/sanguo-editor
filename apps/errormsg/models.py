@@ -3,10 +3,9 @@
 from django.db import models
 
 class ErrorMsg(models.Model):
-    error_id = models.IntegerField("ID")
-    area = models.CharField("区域", max_length=16)
+    id = models.IntegerField(primary_key=True)
+    error_index = models.CharField(unique=True)
     text_zh = models.CharField("中文", max_length=64)
-    text_en = models.CharField("英文", max_length=64, blank=True)
     des = models.CharField("备注", max_length=64, blank=True)
 
     class Meta:
