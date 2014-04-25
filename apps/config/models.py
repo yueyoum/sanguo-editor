@@ -137,8 +137,15 @@ class DialogStatement(models.Model):
         (2, '右'),
     )
 
+    SPEAKER = (
+        (1, '自己'),
+        (2, '小秘书'),
+        (3, '武将'),
+    )
+
     dialog = models.ForeignKey(Dialog)
     position = models.IntegerField("位置", choices=POSITION)
+    speaker = models.IntegerField("发言者", choices=SPEAKER)
     who = models.ForeignKey(Hero, verbose_name='武将', db_column='who', null=True, blank=True)
     speech = models.CharField("发言", max_length=255)
 
