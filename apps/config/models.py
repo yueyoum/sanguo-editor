@@ -112,6 +112,7 @@ class Dialog(models.Model):
         (1, '关卡'),
         (2, 'GUIDE_1'),
         (3, 'GUIDE_2'),
+        (4, 'GUIDE_3'),
     )
 
     START_AT = (
