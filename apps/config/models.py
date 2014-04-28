@@ -108,6 +108,12 @@ class FunctionOpen(models.Model):
 
 # 对话
 class Dialog(models.Model):
+    DIALOG_TYPE = (
+        (1, '关卡'),
+        (2, 'GUIDE_1'),
+        (3, 'GUIDE_2'),
+    )
+
     START_AT = (
         (1, '开始'),
         (2, '结束'),
@@ -120,6 +126,7 @@ class Dialog(models.Model):
         (3, '第三军'),
     )
 
+    tp = models.IntegerField(choices=DIALOG_TYPE)
     stage = models.ForeignKey(Stage, verbose_name="关卡", null=True, blank=True)
     ground_id = models.IntegerField("位于", choices=GROUND)
     start_at = models.IntegerField("开始于", choices=START_AT)

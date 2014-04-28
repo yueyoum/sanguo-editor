@@ -61,7 +61,7 @@ class DialogStatementinline(admin.TabularInline):
 
 class DialogAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'stage', 'ground_id', 'start_at'
+        'id', 'tp', 'stage', 'ground_id', 'start_at'
     )
 
     inlines = [DialogStatementinline,]
