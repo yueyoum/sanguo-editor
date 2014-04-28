@@ -141,6 +141,7 @@ class DialogStatement(models.Model):
         (1, '自己'),
         (2, '小秘书'),
         (3, '武将'),
+        (4, '神龙'),
     )
 
     dialog = models.ForeignKey(Dialog)
