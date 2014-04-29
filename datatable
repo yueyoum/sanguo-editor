@@ -17,3 +17,4 @@ skill.Effect:effects.json
 skill.Skill:skills.json
 skill.SkillEffect:skill_effect.json
 task.Task:tasks.json
+errormsg.ErrorMsg:errormsg.json
