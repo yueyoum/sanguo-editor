@@ -131,6 +131,7 @@ class Dialog(models.Model):
     stage = models.ForeignKey(Stage, verbose_name="关卡", null=True, blank=True)
     ground_id = models.IntegerField("位于", choices=GROUND)
     start_at = models.IntegerField("开始于", choices=START_AT)
+    start_win = models.BooleanField("打赢才说", default=True)
 
     class Meta:
         db_table = 'dialog'
