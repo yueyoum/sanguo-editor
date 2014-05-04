@@ -48,7 +48,7 @@ class Hero(models.Model):
 
     class Meta:
         db_table = 'hero'
-        ordering = ('id',)
+        ordering = ('name',)
         verbose_name = "武将"
         verbose_name_plural = "武将"
 
