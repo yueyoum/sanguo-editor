@@ -53,7 +53,7 @@ class Stage(models.Model):
 
 
     def __unicode__(self):
-        return u'<Stage: %s>' % self.name
+        return u'%d' % self.id
 
 
     class Meta:
