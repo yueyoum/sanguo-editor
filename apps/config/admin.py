@@ -17,7 +17,6 @@ class CharInitAdmin(admin.ModelAdmin):
     list_display = (
         'gold', 'sycee',
         'heros', 'gems', 'stuffs',
-        'extra_hero',
     )
 
 class ArenaRewardResources(resources.ModelResource):

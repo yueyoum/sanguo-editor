@@ -15,7 +15,6 @@ class CharInit(models.Model):
     gems = models.CharField("宝石", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
     stuffs = models.CharField("杂物", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
 
-    extra_hero = models.IntegerField("额外武将", null=True, blank=True)
 
     class Meta:
         db_table = 'config_charinit'
