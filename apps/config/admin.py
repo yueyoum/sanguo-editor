@@ -44,7 +44,7 @@ class NotifyAdmin(ImportExportModelAdmin):
 
 class FunctionDefineAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name'
+        'id', 'name', 'char_level', 'stage_id', 'text',
     )
 
 class FunctionOpenAdmin(admin.ModelAdmin):

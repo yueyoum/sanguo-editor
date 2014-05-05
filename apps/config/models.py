@@ -55,6 +55,11 @@ class FunctionDefine(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=16)
 
+    char_level = models.IntegerField("君主等级条件", default=0)
+    stage_id = models.IntegerField("关卡ID条件", default=0)
+    text = models.CharField("提示文字", max_length=255)
+
+
     def __unicode__(self):
         return self.name
 
