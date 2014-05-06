@@ -7,7 +7,6 @@ from apps.config.models import (
     CharInit,
     ArenaReward,
     Notify,
-    FunctionOpen,
     Dialog,
     DialogStatement,
     FunctionDefine,
@@ -47,12 +46,6 @@ class FunctionDefineAdmin(admin.ModelAdmin):
         'id', 'name', 'char_level', 'stage_id', 'text',
     )
 
-class FunctionOpenAdmin(admin.ModelAdmin):
-    list_display = (
-        'char_level', 'stage_id', 'func', 'socket_amount', 'text'
-    )
-
-
 
 class DialogStatementinline(admin.TabularInline):
     model = DialogStatement
@@ -74,6 +67,5 @@ admin.site.register(CharInit, CharInitAdmin)
 admin.site.register(ArenaReward, ArenaRewardAdmin)
 admin.site.register(Notify, NotifyAdmin)
 admin.site.register(FunctionDefine, FunctionDefineAdmin)
-admin.site.register(FunctionOpen, FunctionOpenAdmin)
 admin.site.register(Dialog, DialogAdmin)
 

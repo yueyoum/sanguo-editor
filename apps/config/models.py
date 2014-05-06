@@ -69,46 +69,6 @@ class FunctionDefine(models.Model):
         verbose_name = '功能'
         verbose_name_plural = '功能'
 
-# 功能开放
-class FunctionOpen(models.Model):
-    FUNC_ID = (
-        (1, '装备强化'),
-        (2, '装备进阶'),
-        (3, '武将进阶'),
-        (4, '宝石镶嵌'),
-        (5, '日常任务'),
-        (6, '成就任务'),
-        (7, '挂机功能'),
-        (8, '比武功能'),
-        (9, '掠夺功能'),
-        (10, '官职功能'),
-        (11, '精英副本'),
-        (12, '好友功能'),
-        (13, '猛将挑战'),
-    )
-
-    SOCKET_AMOUNT = (
-        (5, '上阵五人'),
-        (6, '上阵六人'),
-        (7, '上阵七人'),
-        (8, '上阵八人'),
-    )
-
-    char_level = models.IntegerField("君主等级条件", default=0)
-    stage_id = models.IntegerField("关卡ID条件", default=0)
-
-    func = models.ForeignKey(FunctionDefine, verbose_name='开启功能', null=True, blank=True)
-
-    socket_amount = models.IntegerField("上阵人数", choices=SOCKET_AMOUNT, null=True, blank=True)
-    text = models.CharField("提示文字", max_length=255)
-
-    class Meta:
-        db_table = 'function_open'
-        ordering = ('id',)
-        verbose_name = '功能开启'
-        verbose_name_plural = '功能开启'
-
-
 
 # 对话
 class Dialog(models.Model):
