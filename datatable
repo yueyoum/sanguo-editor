@@ -1,6 +1,6 @@
 config.CharInit:charinit.json
 config.ArenaReward:arena_reward.json
-config.FunctionOpen:function_open.json
+config.FunctionDefine:function_define.json
 achievement.Achievement:achievements.json
 official.Official:official.json
 hero.Hero:heros.json
