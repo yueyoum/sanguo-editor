@@ -41,6 +41,7 @@ class Hero(models.Model):
     default_skill = models.IntegerField("默认技能", default=0)
 
     anger = models.IntegerField("怒气", default=50)
+    des = models.TextField("描述", blank=True)
 
     def __unicode__(self):
         return self.name

@@ -27,6 +27,7 @@ class HeroAdmin(ImportExportModelAdmin):
         'attack_growing', 'defense_growing', 'hp_growing',
         'crit', 'dodge', 'skills', 'default_skill',
         'anger',
+        'des',
     )
 
     list_filter = (
