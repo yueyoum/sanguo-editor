@@ -30,9 +30,7 @@ class Achievement(models.Model):
     buff_name = models.CharField("BUFF名称", max_length=32, blank=True)
     buff_value = models.IntegerField("BUFF值", null=True, blank=True)
 
-    equipments = models.CharField("装备", max_length=255, blank=True)
-    gems = models.CharField("宝石", max_length=255, blank=True)
-    stuffs = models.CharField("材料", max_length=255, blank=True)
+    package = models.CharField("奖励包", max_length=255, blank=True)
 
     def __unicode__(self):
         return u'<成就: %s>' % self.name
