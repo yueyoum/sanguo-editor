@@ -136,11 +136,11 @@ class ActivelyStage(models.Model):
 
 
     def __unicode__(self):
-        return u'<EliteStage: %s>' % self.name
+        return u'<ActivelyStage: %s>' % self.name
 
 
     class Meta:
-        db_table = 'stage_elite'
+        db_table = 'stage_actively'
         ordering = ('id',)
         verbose_name = "活动关卡"
         verbose_name_plural = "活动关卡"
