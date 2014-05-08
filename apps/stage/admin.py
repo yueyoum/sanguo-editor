@@ -4,7 +4,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from apps.stage.models import Battle, Stage, StageDrop, EliteStage, ChallengeStage
+from apps.stage.models import Battle, Stage, EliteStage, ChallengeStage, ActivelyStage
 from apps.hero.models import Monster
 from libs.hero import monster_power
 
@@ -16,10 +16,6 @@ class StageResources(resources.ModelResource):
     class Meta:
         model = Stage
 
-class StageDropResources(resources.ModelResource):
-    class Meta:
-        model = StageDrop
-
 class EliteStageResources(resources.ModelResource):
     class Meta:
         model = EliteStage
@@ -27,6 +23,12 @@ class EliteStageResources(resources.ModelResource):
 class ChallengeStageResources(resources.ModelResource):
     class Meta:
         model = ChallengeStage
+
+
+class ActivelyStageResources(resources.ModelResource):
+    class Meta:
+        model = ActivelyStage
+
 
 class BattleAdmin(ImportExportModelAdmin):
     list_display = ('id', 'name', 'level_limit', 'des',)
@@ -82,14 +84,9 @@ class StageAdmin(ImportExportModelAdmin):
 
 
 
-class StageDropAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'equips', 'gems', 'stuffs')
-    resource_class = StageDropResources
-
-
 class EliteStageAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'name', 'bg', 'level', 'strength_modulus', 'times',
+        'id', 'name', 'battle', 'bg', 'level', 'strength_modulus', 'times',
         'open_condition', 'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop',
     )
@@ -144,9 +141,56 @@ class ChallengeStageAdmin(ImportExportModelAdmin):
 
     resource_class = ChallengeStageResources
 
+
+
+class ActivelyStageAdmin(ImportExportModelAdmin):
+    list_display = (
+        'id', 'name', 'battle', 'bg', 'level', 'strength_modulus', 'char_level',
+        'Monsters', 'Powers',
+        'normal_exp', 'normal_gold', 'normal_drop',
+    )
+
+    resource_class = ActivelyStageResources
+
+    def Monsters(self, obj):
+        monsters = obj.monsters.split(',')
+        text = []
+        for i in range(0, 9, 3):
+            text.append(','.join(monsters[i: i+3]))
+
+        return "<br />".join(text)
+    Monsters.allow_tags = True
+    Monsters.short_description = "怪物ID"
+
+
+    def Powers(self, obj):
+        ms = [int(i) for i in obj.monsters.split(',')]
+        text = []
+        p = 0
+        for line in zip(ms[::3], ms[1::3], ms[2::3]):
+            line_text = []
+            line_p = 0
+            for m in line:
+                if m == 0:
+                    line_text.append('0')
+                else:
+                    mobj = Monster.objects.get(id=m)
+                    mp = monster_power(mobj, obj.level)
+                    line_p += mp
+                    p += mp
+                    line_text.append(str(mp))
+
+            line_text.append(" | {0}".format(line_p))
+            text.append(', '.join(line_text))
+
+        text.append('-' * 6)
+        text.append(str(p))
+        return "<br />".join(text)
+    Powers.allow_tags = True
+
+
 admin.site.register(Battle, BattleAdmin)
 admin.site.register(Stage, StageAdmin)
-admin.site.register(StageDrop, StageDropAdmin)
 admin.site.register(EliteStage, EliteStageAdmin)
 admin.site.register(ChallengeStage, ChallengeStageAdmin)
-
+admin.site.register(ActivelyStage, ActivelyStageAdmin)

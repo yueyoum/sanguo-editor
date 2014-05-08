@@ -63,23 +63,12 @@ class Stage(models.Model):
         verbose_name_plural = "关卡"
 
 
-class StageDrop(models.Model):
-    id = models.IntegerField(primary_key=True)
-    equips = models.CharField("装备掉落", max_length=255, blank=True, help_text="id:prob,id:prob")
-    gems = models.CharField("宝石掉落", max_length=255, blank=True, help_text='id:prob,id:prob')
-    stuffs = models.CharField("材料掉落", max_length=255, blank=True, help_text='id:prob,id:prob')
-
-    class Meta:
-        db_table = 'stagedrop'
-        ordering = ('id',)
-        verbose_name = "关卡物品掉落"
-        verbose_name_plural = "关卡物品掉落"
-
-
-
 class EliteStage(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
+
+    battle = models.ForeignKey(Battle, verbose_name="战役")
+
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级", default=1)
     strength_modulus = models.FloatField("怪物强度系数", default=2)
@@ -124,5 +113,38 @@ class ChallengeStage(models.Model):
         ordering = ('id',)
         verbose_name = "猛将挑战"
         verbose_name_plural = "猛将挑战"
+
+
+
+class ActivelyStage(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField("名字", max_length=32)
+
+    battle = models.ForeignKey(Battle, verbose_name="战役")
+
+    bg = models.CharField("背景图片", max_length=32, blank=True)
+    level = models.IntegerField("关卡等级", default=1)
+    strength_modulus = models.FloatField("怪物强度系数", default=2)
+
+    char_level = models.IntegerField("角色等级开启", default=1)
+
+    monsters = models.TextField("怪物ID")
+
+    normal_exp = models.IntegerField("经验", default=0)
+    normal_gold = models.IntegerField("金币", default=0)
+    normal_drop = models.CharField("掉落", max_length=255, blank=True)
+
+
+    def __unicode__(self):
+        return u'<EliteStage: %s>' % self.name
+
+
+    class Meta:
+        db_table = 'stage_elite'
+        ordering = ('id',)
+        verbose_name = "活动关卡"
+        verbose_name_plural = "活动关卡"
+
+
 
 
