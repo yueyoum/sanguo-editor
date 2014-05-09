@@ -117,10 +117,14 @@ class ChallengeStage(models.Model):
 
 
 class ActivelyStage(models.Model):
+    TP = (
+        (1, '金币副本'),
+        (2, '宝石副本'),
+    )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
 
-    battle = models.ForeignKey(Battle, verbose_name="战役")
+    tp = models.IntegerField("类型", choices=TP)
 
     bg = models.CharField("背景图片", max_length=32, blank=True)
     level = models.IntegerField("关卡等级", default=1)
