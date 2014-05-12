@@ -145,7 +145,7 @@ class ChallengeStageAdmin(ImportExportModelAdmin):
 
 class ActivelyStageAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'name', 'tp', 'bg', 'level', 'strength_modulus', 'char_level',
+        'id', 'name', 'battle_name', 'tp', 'bg', 'level', 'strength_modulus', 'char_level',
         'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop',
     )

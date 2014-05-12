@@ -123,6 +123,7 @@ class ActivelyStage(models.Model):
     )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
+    battle_name = models.CharField(max_length=32)
 
     tp = models.IntegerField("类型", choices=TP)
 
