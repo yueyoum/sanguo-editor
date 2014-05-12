@@ -69,7 +69,7 @@ class StageAdmin(ImportExportModelAdmin):
                     line_text.append('0')
                 else:
                     mobj = Monster.objects.get(id=m)
-                    mp = monster_power(mobj, obj.level)
+                    mp = monster_power(obj.strength_modulus, mobj, obj.level)
                     line_p += mp
                     p += mp
                     line_text.append(str(mp))
@@ -116,7 +116,7 @@ class EliteStageAdmin(ImportExportModelAdmin):
                     line_text.append('0')
                 else:
                     mobj = Monster.objects.get(id=m)
-                    mp = monster_power(mobj, obj.level)
+                    mp = monster_power(obj.strength_modulus, mobj, obj.level)
                     line_p += mp
                     p += mp
                     line_text.append(str(mp))
@@ -175,7 +175,7 @@ class ActivelyStageAdmin(ImportExportModelAdmin):
                     line_text.append('0')
                 else:
                     mobj = Monster.objects.get(id=m)
-                    mp = monster_power(mobj, obj.level)
+                    mp = monster_power(obj.strength_modulus, mobj, obj.level)
                     line_p += mp
                     p += mp
                     line_text.append(str(mp))

@@ -35,6 +35,10 @@ def cal_monster_property(monster, level):
 
     return int(attack), int(defense), int(hp)
 
-def monster_power(monster, level):
+def monster_power(strength_modulus, monster, level):
     a, d, h = cal_monster_property(monster, level)
+    a *= strength_modulus
+    d *= strength_modulus
+    h *= strength_modulus
     return cal_power(a, d, h, monster.crit)
+
