@@ -5,6 +5,7 @@ from django.contrib import admin
 from apps.goodspackage.models import (
     Package,
     HeroInfo,
+    SoulInfo,
     EquipInfo,
     GemInfo,
     StuffInfo,
@@ -13,6 +14,10 @@ from apps.goodspackage.models import (
 
 class HeroInfoInline(admin.TabularInline):
     model = HeroInfo
+    extra = 1
+
+class SoulInfoInline(admin.TabularInline):
+    model = SoulInfo
     extra = 1
 
 class EquipInfoInline(admin.TabularInline):
@@ -29,14 +34,25 @@ class StuffInfoInline(admin.TabularInline):
 
 class PackageAdmin(admin.ModelAdmin):
     inlines = (
-        HeroInfoInline, EquipInfoInline,
+        HeroInfoInline, SoulInfoInline, EquipInfoInline,
         GemInfoInline, StuffInfoInline
     )
 
-    list_display = ('id', 'name', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'Equips', 'Gems', 'Stuffs')
+    list_display = ('id', 'name', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'Souls', 'Equips', 'Gems', 'Stuffs')
 
     def Heros(self, obj):
         data = obj.heroinfo_set.all()
+        def _make_text(x):
+            text = u'{0}, 数量: {1}, 概率: {2}'.format(
+                x.hero.name, x.amount, x.prob
+            )
+            return text
+        texts = [_make_text(x) for x in data]
+        return '<br />'.join(texts)
+    Heros.allow_tags = True
+
+    def Souls(self, obj):
+        data = obj.soulinfo_set.all()
         def _make_text(x):
             text = u'{0}, 数量: {1}, 概率: {2}'.format(
                 x.soul.name, x.amount, x.prob
@@ -44,7 +60,7 @@ class PackageAdmin(admin.ModelAdmin):
             return text
         texts = [_make_text(x) for x in data]
         return '<br />'.join(texts)
-    Heros.allow_tags = True
+    Souls.allow_tags = True
 
 
     def Equips(self, obj):

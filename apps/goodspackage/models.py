@@ -9,7 +9,9 @@ from apps.item.models import Equipment, Gem, Stuff
 class Package(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
+
     heros = models.ManyToManyField(Hero, through='HeroInfo')
+    souls = models.ManyToManyField(Hero, through='SoulInfo')
     equips = models.ManyToManyField(Equipment, through='EquipInfo')
     gems = models.ManyToManyField(Gem, through='GemInfo')
     stuffs = models.ManyToManyField(Stuff, through='StuffInfo')
@@ -45,6 +47,15 @@ class Package(models.Model):
                 'prob': s.prob,
             })
 
+        souls = self.soulinfo_set.all()
+        souls_data = []
+        for s in souls:
+            souls_data.append({
+                'id': s.soul.id,
+                'amount': s.amount,
+                'prob': s.prob,
+            })
+
         equips = self.equipinfo_set.all()
         equips_data = []
         for e in equips:
@@ -73,8 +84,8 @@ class Package(models.Model):
                 'prob': s.prob,
             })
 
-
         data['heros'] = heros_data
+        data['souls'] = souls_data
         data['equipments'] = equips_data
         data['gems'] = gems_data
         data['stuffs'] = stuffs_data
@@ -90,6 +101,17 @@ class HeroInfo(models.Model):
 
     class Meta:
         db_table = 'package_hero_info'
+
+
+class SoulInfo(models.Model):
+    soul = models.ForeignKey(Hero)
+    package = models.ForeignKey(Package)
+    amount = models.IntegerField(default=1, verbose_name='数量')
+    prob = models.IntegerField(default=100000, verbose_name='概率')
+
+    class Meta:
+        db_table = 'package_soul_info'
+
 
 
 class EquipInfo(models.Model):
