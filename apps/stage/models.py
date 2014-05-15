@@ -20,7 +20,7 @@ class Battle(models.Model):
 
 class StageType(models.Model):
     id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=32)
+    resource = models.ForeignKey('config.ResourceType')
     value = models.IntegerField()
     des = models.TextField()
 

@@ -37,7 +37,7 @@ class BattleAdmin(ImportExportModelAdmin):
 
 class StageTypeAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'value', 'des'
+        'id', 'resource', 'value', 'des'
     )
 
 
