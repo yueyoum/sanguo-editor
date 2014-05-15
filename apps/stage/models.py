@@ -18,19 +18,32 @@ class Battle(models.Model):
         verbose_name = "战役"
         verbose_name_plural = "战役"
 
+class StageType(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=32)
+    value = models.IntegerField()
+    des = models.TextField()
 
+    def __unicode__(self):
+        return u'%s - %d' % (self.name, self.value)
+
+    class Meta:
+        db_table = 'stage_type'
+        verbose_name = '关卡类型'
+        verbose_name_plural = '关卡类型'
 
 class Stage(models.Model):
-    STAGE_TP = (
-        (0, '普通'), (1, '经验'), (2, '金币'), (3, '宝石'), (4, '材料'), (5, '卡魂')
-    )
+    # STAGE_TP = (
+    #     (0, '普通'), (1, '经验'), (2, '金币'), (3, '宝石'), (4, '材料'), (5, '卡魂')
+    # )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
 
     bg = models.CharField("背景", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
     strength_modulus = models.FloatField("强度系数", default=2)
-    tp = models.IntegerField("类型", choices=STAGE_TP)
+
+    stage_tp = models.ForeignKey(StageType)
 
     battle = models.ForeignKey(Battle, verbose_name="战役")
 
@@ -81,6 +94,8 @@ class EliteStage(models.Model):
     normal_exp = models.IntegerField("经验", default=0)
     normal_gold = models.IntegerField("金币", default=0)
     normal_drop = models.CharField("掉落", max_length=255, blank=True)
+
+    show_souls = models.CharField("展示卡魂", max_length=255, blank=True)
 
 
     def __unicode__(self):
