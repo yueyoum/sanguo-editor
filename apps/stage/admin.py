@@ -4,7 +4,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from apps.stage.models import Battle, Stage, EliteStage, ChallengeStage, ActivelyStage
+from apps.stage.models import Battle, Stage, EliteStage, ChallengeStage, ActivelyStage, StageType
 from apps.hero.models import Monster
 from libs.hero import monster_power
 
@@ -33,6 +33,13 @@ class ActivelyStageResources(resources.ModelResource):
 class BattleAdmin(ImportExportModelAdmin):
     list_display = ('id', 'name', 'level_limit', 'des',)
     resource_class = BattleResources
+
+
+class StageTypeAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'name', 'value', 'des'
+    )
+
 
 class StageAdmin(ImportExportModelAdmin):
     list_display = (
@@ -190,6 +197,7 @@ class ActivelyStageAdmin(ImportExportModelAdmin):
 
 
 admin.site.register(Battle, BattleAdmin)
+admin.site.register(StageType, StageTypeAdmin)
 admin.site.register(Stage, StageAdmin)
 admin.site.register(EliteStage, EliteStageAdmin)
 admin.site.register(ChallengeStage, ChallengeStageAdmin)
