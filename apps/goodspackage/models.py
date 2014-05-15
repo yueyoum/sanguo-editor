@@ -40,7 +40,7 @@ class Package(models.Model):
         heros_data = []
         for s in heros:
             heros_data.append({
-                'id': s.soul.id,
+                'id': s.hero.id,
                 'amount': s.amount,
                 'prob': s.prob,
             })
@@ -83,7 +83,7 @@ class Package(models.Model):
 
 
 class HeroInfo(models.Model):
-    soul = models.ForeignKey(Hero)
+    hero = models.ForeignKey(Hero)
     package = models.ForeignKey(Package)
     amount = models.IntegerField(default=1, verbose_name='数量')
     prob = models.IntegerField(default=100000, verbose_name='概率')
