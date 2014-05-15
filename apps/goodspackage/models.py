@@ -10,8 +10,8 @@ class Package(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
 
-    heros = models.ManyToManyField(Hero, through='HeroInfo')
-    souls = models.ManyToManyField(Hero, through='SoulInfo')
+    heros = models.ManyToManyField(Hero, through='HeroInfo', related_name='heros_info')
+    souls = models.ManyToManyField(Hero, through='SoulInfo', related_name='souls_info')
     equips = models.ManyToManyField(Equipment, through='EquipInfo')
     gems = models.ManyToManyField(Gem, through='GemInfo')
     stuffs = models.ManyToManyField(Stuff, through='StuffInfo')
