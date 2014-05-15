@@ -4,6 +4,7 @@ from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
 from apps.config.models import (
+    ResourceType,
     CharInit,
     ArenaReward,
     Notify,
@@ -11,6 +12,12 @@ from apps.config.models import (
     DialogStatement,
     FunctionDefine,
 )
+
+class ResourceTypeAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'name', 'icon'
+    )
+
 
 class CharInitAdmin(admin.ModelAdmin):
     list_display = (
@@ -62,7 +69,7 @@ class DialogAdmin(admin.ModelAdmin):
 
 
 
-
+admin.site.register(ResourceType, ResourceTypeAdmin)
 admin.site.register(CharInit, CharInitAdmin)
 admin.site.register(ArenaReward, ArenaRewardAdmin)
 admin.site.register(Notify, NotifyAdmin)

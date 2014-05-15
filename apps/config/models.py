@@ -6,6 +6,17 @@ from apps.hero.models import Hero
 from apps.stage.models import Stage
 
 
+# ID标识
+class ResourceType(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=32)
+    icon = models.CharField(max_length=32, blank=True)
+
+    class Meta:
+        db_table = 'resource_type'
+
+
+
 # 角色初始化
 class CharInit(models.Model):
     gold = models.IntegerField("金币", default=0)
