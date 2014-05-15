@@ -4,7 +4,7 @@
 
 uwsgi.ini
 fixtures
-
+static
 env
 .idea
 
