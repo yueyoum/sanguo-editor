@@ -12,6 +12,9 @@ class ResourceType(models.Model):
     name = models.CharField(max_length=32)
     icon = models.CharField(max_length=32, blank=True)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         db_table = 'resource_type'
 
