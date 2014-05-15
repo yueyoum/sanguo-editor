@@ -25,7 +25,7 @@ class StageType(models.Model):
     des = models.TextField()
 
     def __unicode__(self):
-        return u'%s - %d' % (self.name, self.value)
+        return u'%s - %d' % (self.resource.name, self.value)
 
     class Meta:
         db_table = 'stage_type'
