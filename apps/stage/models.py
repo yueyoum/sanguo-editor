@@ -43,7 +43,7 @@ class Stage(models.Model):
     level = models.IntegerField("关卡等级")
     strength_modulus = models.FloatField("强度系数", default=2)
 
-    stage_tp = models.ForeignKey(StageType)
+    tp = models.ForeignKey(StageType, db_column='tp')
 
     battle = models.ForeignKey(Battle, verbose_name="战役")
 
