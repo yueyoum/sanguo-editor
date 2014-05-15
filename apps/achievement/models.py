@@ -12,6 +12,7 @@ class Achievement(models.Model):
     )
 
     id = models.IntegerField(primary_key=True)
+    open = models.BooleanField(default=True)
     tp = models.IntegerField("类型")
     tp_name = models.CharField("类型名字", max_length=32)
     name = models.CharField("成就名称", max_length=32)
