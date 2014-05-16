@@ -26,7 +26,8 @@ class Skill(models.Model):
     des = models.TextField("描述", blank=True)
     cast_effect = models.CharField("施放特效", max_length=32, blank=True)
     hit_effect = models.CharField("命中特效", max_length=32, blank=True)
-    is_fullscreen = models.BooleanField("是否全屏", default=False)
+    cast_type = models.IntegerField("特效类型参数", default=1, help_text='1 普通， 2 全屏， 3 飞行')
+    hits = models.IntegerField("打击次数", default=1)
 
     mode = models.IntegerField("类型")
     mode_name = models.CharField("类型名字", max_length=8)
