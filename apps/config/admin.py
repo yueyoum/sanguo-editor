@@ -60,7 +60,7 @@ class DialogStatementinline(admin.TabularInline):
 
 class DialogAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'tp', 'stage', 'ground_id', 'start_at', 'start_win',
+        'id', 'tp', 'stage_id', 'ground_id', 'start_at', 'start_win',
         'only_once'
     )
 

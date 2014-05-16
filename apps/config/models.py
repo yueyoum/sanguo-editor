@@ -108,7 +108,7 @@ class Dialog(models.Model):
     )
 
     tp = models.IntegerField(choices=DIALOG_TYPE)
-    stage = models.IntegerField(null=True, blank=True)
+    stage_id = models.IntegerField(null=True, blank=True)
     ground_id = models.IntegerField("位于", choices=GROUND, null=True, blank=True, help_text='只有关卡对话才设置')
     start_at = models.IntegerField("开始于", choices=START_AT, null=True, blank=True, help_text='只有关卡对话才设置')
     start_win = models.BooleanField("打赢才说", default=True, help_text='只有关卡对话才设置')
