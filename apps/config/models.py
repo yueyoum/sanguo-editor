@@ -3,7 +3,6 @@
 from django.db import models
 
 from apps.hero.models import Hero
-from apps.stage.models import Stage
 
 
 # ID标识
@@ -87,10 +86,13 @@ class FunctionDefine(models.Model):
 # 对话
 class Dialog(models.Model):
     DIALOG_TYPE = (
-        (1, '关卡'),
-        (2, 'GUIDE_1'),
-        (3, 'GUIDE_2'),
-        (4, 'GUIDE_3'),
+        (1, '普通关卡'),
+        (2, '精英关卡'),
+        (3, '活动关卡'),
+
+        (11, 'GUIDE_1'),
+        (12, 'GUIDE_2'),
+        (13, 'GUIDE_3'),
     )
 
     START_AT = (
@@ -106,10 +108,12 @@ class Dialog(models.Model):
     )
 
     tp = models.IntegerField(choices=DIALOG_TYPE)
-    stage = models.ForeignKey(Stage, verbose_name="关卡", null=True, blank=True)
-    ground_id = models.IntegerField("位于", choices=GROUND)
-    start_at = models.IntegerField("开始于", choices=START_AT)
-    start_win = models.BooleanField("打赢才说", default=True)
+    stage = models.IntegerField(null=True, blank=True)
+    ground_id = models.IntegerField("位于", choices=GROUND, null=True, blank=True, help_text='只有关卡对话才设置')
+    start_at = models.IntegerField("开始于", choices=START_AT, null=True, blank=True, help_text='只有关卡对话才设置')
+    start_win = models.BooleanField("打赢才说", default=True, help_text='只有关卡对话才设置')
+    only_once = models.BooleanField("只说一次", default=True, help_text='只有关卡对话才设置')
+
 
     class Meta:
         db_table = 'dialog'
