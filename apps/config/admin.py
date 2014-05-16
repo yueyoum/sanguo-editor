@@ -66,7 +66,7 @@ class DialogAdmin(admin.ModelAdmin):
 
     inlines = [DialogStatementinline,]
 
-    list_filter = ('stage', )
+    list_filter = ('stage_id', )
 
 
 
