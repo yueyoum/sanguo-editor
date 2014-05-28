@@ -25,6 +25,8 @@ class VIP(models.Model):
     plunder_addition = models.IntegerField("掠夺资源加成")
     prisoner_get = models.IntegerField("招降概率加成")
 
+    des = models.TextField()
+
     class Meta:
         db_table = 'vip'
         verbose_name = 'VIP'
