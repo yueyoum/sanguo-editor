@@ -89,6 +89,10 @@ class EliteStage(models.Model):
     times = models.IntegerField("次数限制")
 
     open_condition = models.IntegerField("前置关卡ID")
+
+    first = models.BooleanField("起始")
+    next = models.IntegerField("下一关", null=True, blank=True)
+
     monsters = models.TextField("怪物ID")
 
     normal_exp = models.IntegerField("经验", default=0)

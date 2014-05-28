@@ -94,7 +94,7 @@ class StageAdmin(ImportExportModelAdmin):
 class EliteStageAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'battle', 'bg', 'level', 'strength_modulus', 'times',
-        'open_condition', 'Monsters', 'Powers',
+        'open_condition', 'first', 'next', 'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop', 'show_souls'
     )
 
