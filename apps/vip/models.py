@@ -2,15 +2,15 @@
 
 from django.db import models
 
-class VIPFunction(models.Model):
-    func_name = models.CharField(primary_key=True, max_length=32)
-    func_name_zh = models.CharField(unique=True, max_length=32)
-
-    class Meta:
-        db_table = 'vip_function'
-        verbose_name = "VIP功能"
-        verbose_name_plural = "VIP功能"
-
+# class VIPFunction(models.Model):
+#     func_name = models.CharField(primary_key=True, max_length=32)
+#     func_name_zh = models.CharField(unique=True, max_length=32)
+#
+#     class Meta:
+#         db_table = 'vip_function'
+#         verbose_name = "VIP功能"
+#         verbose_name_plural = "VIP功能"
+#
 
 class VIP(models.Model):
     id = models.IntegerField(primary_key=True)
