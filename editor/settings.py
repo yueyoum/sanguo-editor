@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'apps.task',
     'apps.goodspackage',
     'apps.client_config',
+    'apps.vip',
 )
 
 MIDDLEWARE_CLASSES = (
