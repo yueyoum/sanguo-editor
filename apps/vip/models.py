@@ -20,7 +20,7 @@ class VIP(models.Model):
     hang = models.IntegerField("挂机时间")
     friends = models.IntegerField("好友数量上限")
     arena_buy = models.IntegerField("比武购买次数")
-    stage_elite = models.IntegerField("精英关卡额外购买次数")
+    stage_elite_buy = models.IntegerField("精英关卡额外购买次数")
     plunder = models.IntegerField("掠夺次数")
     plunder_addition = models.IntegerField("掠夺资源加成")
     prisoner_get = models.IntegerField("招降概率加成")
