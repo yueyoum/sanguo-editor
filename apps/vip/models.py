@@ -2,15 +2,6 @@
 
 from django.db import models
 
-# class VIPFunction(models.Model):
-#     func_name = models.CharField(primary_key=True, max_length=32)
-#     func_name_zh = models.CharField(unique=True, max_length=32)
-#
-#     class Meta:
-#         db_table = 'vip_function'
-#         verbose_name = "VIP功能"
-#         verbose_name_plural = "VIP功能"
-#
 
 class VIP(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -20,7 +11,8 @@ class VIP(models.Model):
     hang = models.IntegerField("挂机时间")
     friends = models.IntegerField("好友数量上限")
     arena_buy = models.IntegerField("比武购买次数")
-    stage_elite_buy = models.IntegerField("精英关卡额外购买次数")
+    stage_elite_buy = models.IntegerField("精英关卡重置次数")
+    stage_elite_buy_total = models.IntegerField("精英关卡总重置次数")
     plunder = models.IntegerField("掠夺次数")
     plunder_addition = models.IntegerField("掠夺资源加成")
     prisoner_get = models.IntegerField("招降概率加成")

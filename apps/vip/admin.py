@@ -13,7 +13,8 @@ class VIPResources(resources.ModelResource):
 class VIPAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'sycee', 'levy', 'hang', 'friends', 'arena_buy',
-        'stage_elite_buy', 'plunder', 'plunder_addition', 'prisoner_get',
+        'stage_elite_buy', 'stage_elite_buy_total',
+        'plunder', 'plunder_addition', 'prisoner_get',
         'des',
     )
 
