@@ -15,7 +15,7 @@ class SkillEffectInline(admin.TabularInline):
 
 class SkillAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'des', 'hits', 'cast_effect', 'cast_type', 'hit_effect',
+        'id', 'name', 'des', 'hits', 'cast_effect', 'cast_type', 'fly_effect', 'hit_effect',
         'mode', 'mode_name', 'prob', 'trig_start', 'trig_cooldown',
         'anger_self', 'anger_self_team', 'anger_rival_team',
     )
