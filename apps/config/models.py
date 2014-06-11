@@ -67,6 +67,7 @@ class Notify(models.Model):
 class FunctionDefine(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=16)
+    icon = models.CharField("图标", max_length=64, blank=True)
 
     char_level = models.IntegerField("君主等级条件", default=0)
     stage_id = models.IntegerField("关卡ID条件", default=0)
@@ -89,6 +90,7 @@ class Dialog(models.Model):
         (1, '普通关卡'),
         (2, '精英关卡'),
         (3, '活动关卡'),
+        (4, '功能开放'),
 
         (11, 'GUIDE_1'),
         (12, 'GUIDE_2'),

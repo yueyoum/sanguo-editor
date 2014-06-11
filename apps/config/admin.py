@@ -50,7 +50,7 @@ class NotifyAdmin(ImportExportModelAdmin):
 
 class FunctionDefineAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'char_level', 'stage_id', 'text',
+        'id', 'name', 'icon', 'char_level', 'stage_id', 'text',
     )
 
 
