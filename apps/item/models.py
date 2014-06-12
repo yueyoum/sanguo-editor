@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 from django.db import models
+from django.core.exceptions import ValidationError
+
+from apps.goodspackage.models import Package
 
 class Equipment(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -70,21 +73,22 @@ class Stuff(models.Model):
     TYPE = (
         (1, '材料'),
         (2, '宝物'),
+        (3, "宝箱"),
     )
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=16)
     icon = models.CharField("图标", max_length=255, blank=True)
     des = models.CharField("描述", max_length=255, blank=True)
-    buy_sycee = models.IntegerField("购买需要元宝")
-    sell_gold = models.IntegerField("售卖所得金币")
+    buy_sycee = models.IntegerField("购买需要元宝", default=0)
+    sell_gold = models.IntegerField("售卖所得金币", default=0)
 
     tp = models.IntegerField("类型", choices=TYPE)
     value = models.IntegerField("值", null=True, blank=True)
+    packages = models.CommaSeparatedIntegerField("宝箱中的物品包ID", blank=True, max_length=255)
 
     def __unicode__(self):
         return self.name
-
 
     class Meta:
         db_table = 'stuff'
@@ -92,3 +96,14 @@ class Stuff(models.Model):
         verbose_name = "道具"
         verbose_name_plural = "道具"
 
+
+    def clean(self):
+        if self.tp != 3:
+            return
+
+        if not self.packages:
+            return
+
+        for p in self.packages.split(','):
+            if not Package.objects.filter(id=int(p)).exists():
+                raise ValidationError("Package {0} does not exist".format(p))
