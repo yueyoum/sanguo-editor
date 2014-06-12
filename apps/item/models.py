@@ -2,7 +2,6 @@
 from django.db import models
 from django.core.exceptions import ValidationError
 
-from apps.goodspackage.models import Package
 
 class Equipment(models.Model):
     id = models.IntegerField(primary_key=True)
@@ -98,6 +97,8 @@ class Stuff(models.Model):
 
 
     def clean(self):
+        from apps.goodspackage.models import Package
+
         if self.tp != 3:
             return
 
