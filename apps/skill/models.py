@@ -26,9 +26,9 @@ class Skill(models.Model):
     des = models.TextField("描述", blank=True)
     hits = models.IntegerField("打击次数", default=1)
 
-    cast_effect = models.CharField("施放特效", max_length=32, blank=True)
+    prepare_effect = models.CharField("施放特效", max_length=32, blank=True)
     cast_type = models.IntegerField("特效类型参数", default=1, help_text='1 普通， 2 全屏， 3 飞行')
-    fly_effect = models.CharField(max_length=32, blank=True)
+    attach_effect = models.CharField(max_length=32, blank=True)
     hit_effect = models.CharField("命中特效", max_length=32, blank=True)
 
     mode = models.IntegerField("类型")

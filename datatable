@@ -1,6 +1,7 @@
 config.CharInit:charinit.json
 config.ArenaReward:arena_reward.json
 config.FunctionDefine:function_define.json
+config.ResourceType:resource_type.json
 achievement.Achievement:achievements.json
 official.Official:official.json
 hero.Hero:heros.json
@@ -19,3 +20,4 @@ skill.Skill:skills.json
 skill.SkillEffect:skill_effect.json
 task.Task:tasks.json
 errormsg.ErrorMsg:errormsg.json
+vip.VIP:vip.json
