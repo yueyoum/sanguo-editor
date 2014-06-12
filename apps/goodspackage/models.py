@@ -7,8 +7,13 @@ from apps.item.models import Equipment, Gem, Stuff
 
 
 class Package(models.Model):
+    MODE = (
+        (1, '默认'),
+        (2, '只生成一样东西')
+    )
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=64)
+    mode = models.IntegerField(choices=MODE, default=1)
 
     heros = models.ManyToManyField(Hero, through='HeroInfo', related_name='heros_info')
     souls = models.ManyToManyField(Hero, through='SoulInfo', related_name='souls_info')
@@ -21,6 +26,7 @@ class Package(models.Model):
     exp = models.IntegerField(default=0, verbose_name='经验')
     official_exp = models.IntegerField(default=0, verbose_name='官职经验')
 
+
     def __unicode__(self):
         return self.name
 
@@ -32,6 +38,7 @@ class Package(models.Model):
 
     def export_data(self):
         data = {
+            'mode': self.mode,
             'gold': self.gold,
             'sycee': self.sycee,
             'exp': self.exp,
