@@ -42,6 +42,8 @@ class Skill(models.Model):
     anger_self_team = models.IntegerField("对己方的怒气", default=0)
     anger_rival_team = models.IntegerField("对敌方的怒气", default=0)
 
+    war_cry = models.BooleanField()
+
 
     def __unicode__(self):
         return u'<Skill %s>' % self.name
