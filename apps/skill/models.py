@@ -28,7 +28,7 @@ class Skill(models.Model):
 
     prepare_effect = models.CharField("施放特效", max_length=32, blank=True)
     cast_type = models.IntegerField("特效类型参数", default=1, help_text='1 普通， 2 全屏， 3 飞行')
-    attach_effect = models.CharField(max_length=32, blank=True)
+    attack_effect = models.CharField(max_length=32, blank=True)
     hit_effect = models.CharField("命中特效", max_length=32, blank=True)
 
     mode = models.IntegerField("类型")
