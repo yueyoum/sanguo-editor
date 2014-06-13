@@ -77,6 +77,7 @@ class Stuff(models.Model):
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=16)
+    quality = models.IntegerField("品质")
     icon = models.CharField("图标", max_length=255, blank=True)
     des = models.CharField("描述", max_length=255, blank=True)
     buy_sycee = models.IntegerField("购买需要元宝", default=0)
