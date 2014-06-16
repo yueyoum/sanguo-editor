@@ -10,6 +10,7 @@ item.Stuff:stuffs.json
 item.Gem:gems.json
 item.Equipment:equipments.json
 stage.Battle:battles.json
+stage.StageType:stage_type.json
 stage.Stage:stages.json
 stage.EliteStage:stage_elite.json
 stage.ActivelyStage:stage_activity.json
