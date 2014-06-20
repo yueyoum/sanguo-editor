@@ -12,6 +12,7 @@ class Task(models.Model):
     sycee = models.IntegerField("奖励元宝", null=True, blank=True)
     gold = models.IntegerField("奖励金币", null=True, blank=True)
     next_task = models.IntegerField("下一档任务ID", null=True, blank=True)
+    link = models.CharField("链接", max_length=255, blank=True)
 
     class Meta:
         db_table = 'task'
