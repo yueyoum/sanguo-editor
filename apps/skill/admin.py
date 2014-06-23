@@ -18,6 +18,7 @@ class SkillAdmin(admin.ModelAdmin):
         'id', 'name', 'des', 'hits', 'prepare_effect', 'cast_type', 'attack_effect', 'hit_effect',
         'mode', 'mode_name', 'prob', 'trig_start', 'trig_cooldown',
         'anger_self', 'anger_self_team', 'anger_rival_team', 'war_cry',
+        'cast_animation', 'target_animation', 'skill_range'
     )
     inlines = [SkillEffectInline,]
     list_filter = ('mode_name',)

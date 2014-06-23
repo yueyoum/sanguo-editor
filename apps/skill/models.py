@@ -21,6 +21,11 @@ class Effect(models.Model):
 
 
 class Skill(models.Model):
+    RANGE = (
+        (1, "近战"),
+        (2, "远程"),
+    )
+
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
     des = models.TextField("描述", blank=True)
@@ -43,6 +48,10 @@ class Skill(models.Model):
     anger_rival_team = models.IntegerField("对敌方的怒气", default=0)
 
     war_cry = models.BooleanField()
+
+    cast_animation = models.CharField(max_length=255, blank=True)
+    target_animation = models.CharField(max_length=255, blank=True)
+    skill_range = models.IntegerField(choices=RANGE, default=1)
 
 
     def __unicode__(self):
