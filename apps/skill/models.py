@@ -78,7 +78,7 @@ class SkillEffect(models.Model):
     value = models.IntegerField("数值")
     rounds = models.IntegerField("作用回合")
 
-    main_effect = models.BooleanField("打击目标", default=False)
+    is_hit_target = models.BooleanField("打击目标", default=False)
 
     class Meta:
         db_table = 'skill_effect'
