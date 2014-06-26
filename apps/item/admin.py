@@ -15,7 +15,7 @@ class EquipmentResources(resources.ModelResource):
 
 class EquipmentAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'name', 'Icon', 'IconLarge',
+        'id', 'name', 'Icon', 'IconLarge', 'des',
         'step', 'step_name', 'tp', 'tp_name', 'cls', 'cls_name',
         'upgrade_to', 'stuff_needs',
         'attack', 'defense', 'hp',
