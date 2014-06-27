@@ -13,7 +13,7 @@ class TaskResources(resources.ModelResource):
 
 class TaskAdmin(ImportExportModelAdmin):
     list_display = (
-        'id', 'tp', 'name', 'first', 'times', 'sycee', 'gold', 'next_task', 'link',
+        'id', 'tp', 'func', 'name', 'first', 'times', 'sycee', 'gold', 'next_task', 'link',
     )
 
     resource_class = TaskResources

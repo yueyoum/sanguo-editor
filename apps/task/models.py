@@ -6,6 +6,7 @@ from django.db import models
 class Task(models.Model):
     id = models.IntegerField(primary_key=True)
     tp = models.IntegerField("类型")
+    func = models.ForeignKey('config.FunctionDefine', null=True, blank=True, verbose_name='对应功能')
     name = models.CharField("名字", max_length=32)
     first = models.BooleanField("初始任务", default=False)
     times = models.IntegerField("次数")
