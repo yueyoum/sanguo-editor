@@ -49,6 +49,7 @@ class Gem(models.Model):
     icon = models.CharField("图标", max_length=32, blank=True)
     tp_name = models.CharField("类型名字", max_length=16)
     level = models.IntegerField("等级")
+    quality = models.IntegerField("品质")
 
     used_for = models.CharField("用于", max_length=16)
     used_for_name = models.CharField("用于名字", max_length=16)
