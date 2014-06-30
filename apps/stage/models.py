@@ -138,6 +138,7 @@ class ActivelyStage(models.Model):
     TP = (
         (1, '金币副本'),
         (2, '宝石副本'),
+        (3, '材料副本'),
     )
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
