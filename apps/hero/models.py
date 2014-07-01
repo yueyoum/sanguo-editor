@@ -42,6 +42,7 @@ class Hero(models.Model):
 
     anger = models.IntegerField("怒气", default=50)
     des = models.TextField("描述", blank=True)
+    des_prof = models.TextField(blank=True)
 
     def __unicode__(self):
         return self.name
