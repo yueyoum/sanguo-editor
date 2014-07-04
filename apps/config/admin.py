@@ -6,7 +6,8 @@ from import_export.admin import ImportExportModelAdmin
 from apps.config.models import (
     ResourceType,
     CharInit,
-    ArenaReward,
+    ArenaDayReward,
+    ArenaWeekReward,
     Notify,
     Dialog,
     DialogStatement,
@@ -25,16 +26,16 @@ class CharInitAdmin(admin.ModelAdmin):
         'heros', 'gems', 'stuffs',
     )
 
-class ArenaRewardResources(resources.ModelResource):
-    class Meta:
-        model = ArenaReward
 
-class ArenaRewardAdmin(ImportExportModelAdmin):
+class ArenaDayRewardAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'day_gold', 'week_gold', 'week_stuffs'
+        'id', 'name', 'rank_des', 'sycee', 'gold',
     )
 
-    resource_class = ArenaRewardResources
+class ArenaWeekRewardAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'rank_des', 'stuff_id'
+    )
 
 
 class NotifyResources(resources.ModelResource):
@@ -53,7 +54,6 @@ class FunctionDefineAdmin(admin.ModelAdmin):
         'id', 'name', 'icon', 'char_level', 'stage_id', 'text',
     )
 
-
 class DialogStatementinline(admin.TabularInline):
     model = DialogStatement
     extra = 1
@@ -69,11 +69,10 @@ class DialogAdmin(admin.ModelAdmin):
     list_filter = ('stage_id', )
 
 
-
 admin.site.register(ResourceType, ResourceTypeAdmin)
 admin.site.register(CharInit, CharInitAdmin)
-admin.site.register(ArenaReward, ArenaRewardAdmin)
+admin.site.register(ArenaDayReward, ArenaDayRewardAdmin)
+admin.site.register(ArenaWeekReward, ArenaWeekRewardAdmin)
 admin.site.register(Notify, NotifyAdmin)
 admin.site.register(FunctionDefine, FunctionDefineAdmin)
 admin.site.register(Dialog, DialogAdmin)
-

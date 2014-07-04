@@ -18,7 +18,6 @@ class ResourceType(models.Model):
         db_table = 'resource_type'
 
 
-
 # 角色初始化
 class CharInit(models.Model):
     gold = models.IntegerField("金币", default=0)
@@ -36,17 +35,30 @@ class CharInit(models.Model):
 
 
 # 比武排名奖励
-class ArenaReward(models.Model):
+class ArenaDayReward(models.Model):
     id = models.IntegerField("排名级别", primary_key=True)
     name = models.CharField("称谓", max_length=32, blank=True)
-    day_gold = models.IntegerField("日金币")
-    week_gold = models.IntegerField("周金币")
-    week_stuffs = models.CharField("周材料", max_length=255, blank=True)
+    rank_des = models.CharField("排名描述", max_length=32)
+
+    sycee = models.IntegerField("奖励元宝", default=0)
+    gold = models.IntegerField("奖励金币", default=0)
+
 
     class Meta:
-        db_table = 'arena_reward'
-        verbose_name = "比武奖励"
-        verbose_name_plural = "比武奖励"
+        db_table = 'arena_day_reward'
+        verbose_name = "比武日奖励"
+        verbose_name_plural = "比武日奖励"
+        ordering = ('id',)
+
+class ArenaWeekReward(models.Model):
+    id = models.IntegerField("排名级别", primary_key=True)
+    rank_des = models.CharField("排名描述", max_length=32)
+    stuff_id = models.IntegerField("道具ID")
+
+    class Meta:
+        db_table = 'arena_week_reward'
+        verbose_name = "比武周奖励"
+        verbose_name_plural = "比武周奖励"
         ordering = ('id',)
 
 
@@ -166,5 +178,3 @@ class GameGuide(models.Model):
         ordering = ('id',)
         verbose_name = '新手引导'
         verbose_name_plural = '新手引导'
-
-
