@@ -1,5 +1,6 @@
 config.CharInit:charinit.json
-config.ArenaReward:arena_reward.json
+config.ArenaDayReward:arena_day_reward.json
+config.ArenaWeekReward:arena_week_reward.json
 config.FunctionDefine:function_define.json
 config.ResourceType:resource_type.json
 achievement.Achievement:achievements.json
