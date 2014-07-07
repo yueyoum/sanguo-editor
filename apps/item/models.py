@@ -58,6 +58,7 @@ class Gem(models.Model):
     merge_to = models.IntegerField("合成到", null=True, blank=True)
 
     sell_gold = models.IntegerField("售卖所的金币")
+    des = models.TextField("描述", blank=True)
 
     def __unicode__(self):
         return self.name

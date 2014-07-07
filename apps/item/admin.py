@@ -44,6 +44,7 @@ class GemAdmin(admin.ModelAdmin):
         'id', 'name', 'Icon', 'tp_name', 'level', 'quality',
         'used_for', 'used_for_name', 'value', 'merge_to',
         'sell_gold',
+        'des',
     )
 
     list_filter = ('used_for',)
