@@ -18,21 +18,6 @@ class ResourceType(models.Model):
         db_table = 'resource_type'
 
 
-# 角色初始化
-class CharInit(models.Model):
-    gold = models.IntegerField("金币", default=0)
-    sycee = models.IntegerField("元宝", default=0)
-
-    heros = models.CharField("武将", max_length=255, help_text="武将:武器,防具,饰品|武将:武器,防具,饰品", blank=True)
-    gems = models.CharField("宝石", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
-    stuffs = models.CharField("杂物", max_length=255, help_text="id:amount,id:amount,id:amount", blank=True)
-
-
-    class Meta:
-        db_table = 'config_charinit'
-        verbose_name = "角色初始化"
-        verbose_name_plural = "角色初始化"
-
 
 # 比武排名奖励
 class ArenaDayReward(models.Model):
