@@ -22,7 +22,7 @@ class ResourceType(models.Model):
 # 比武日奖励
 class ArenaDayReward(models.Model):
     id = models.IntegerField("积分级别", primary_key=True)
-    rank_des = models.CharField("排名描述", max_length=32)
+    rank_des = models.CharField("积分描述", max_length=32)
 
     sycee = models.IntegerField("奖励元宝", default=0)
     gold = models.IntegerField("奖励金币", default=0)
