@@ -21,7 +21,7 @@ class ResourceTypeAdmin(admin.ModelAdmin):
 
 class ArenaDayRewardAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'rank_des', 'sycee', 'gold',
+        'id', 'rank_des', 'sycee', 'gold',
     )
 
 class ArenaWeekRewardAdmin(admin.ModelAdmin):

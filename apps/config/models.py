@@ -19,10 +19,9 @@ class ResourceType(models.Model):
 
 
 
-# 比武排名奖励
+# 比武日奖励
 class ArenaDayReward(models.Model):
-    id = models.IntegerField("排名级别", primary_key=True)
-    name = models.CharField("称谓", max_length=32, blank=True)
+    id = models.IntegerField("积分级别", primary_key=True)
     rank_des = models.CharField("排名描述", max_length=32)
 
     sycee = models.IntegerField("奖励元宝", default=0)
@@ -35,6 +34,7 @@ class ArenaDayReward(models.Model):
         verbose_name_plural = "比武日奖励"
         ordering = ('id',)
 
+# 比武周奖励
 class ArenaWeekReward(models.Model):
     id = models.IntegerField("排名级别", primary_key=True)
     rank_des = models.CharField("排名描述", max_length=32)
