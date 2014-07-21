@@ -38,7 +38,7 @@ class ArenaDayReward(models.Model):
 class ArenaWeekReward(models.Model):
     id = models.IntegerField("排名级别", primary_key=True)
     rank_des = models.CharField("排名描述", max_length=32)
-    stuff_id = models.IntegerField("道具ID")
+    packages = models.CharField("物品包", help_text='id,id,id...')
 
     class Meta:
         db_table = 'arena_week_reward'
