@@ -50,6 +50,7 @@ INSTALLED_APPS = (
     'apps.goodspackage',
     'apps.client_config',
     'apps.vip',
+    'apps.purchase',
 )
 
 MIDDLEWARE_CLASSES = (
