@@ -8,7 +8,8 @@ class Product91TypeAdmin(admin.ModelAdmin):
 class Product91Admin(admin.ModelAdmin):
     list_display = (
         'id', 'tp', 'display_value', 'icon',
-        'des', 'rmb', 'sycee'
+        'first_des', 'des', 'rmb',
+        'first_addition_sycee', 'addition_sycee', 'sycee'
     )
 
 

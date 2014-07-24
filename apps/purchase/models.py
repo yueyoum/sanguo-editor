@@ -23,9 +23,14 @@ class Product91(models.Model):
 
     display_value = models.IntegerField("显示数值")
     icon = models.CharField("图标", max_length=128, blank=True)
-    des = models.CharField("描述", max_length=128, blank=True)
+
+    first_des = models.CharField("首充描述", max_length=128, blank=True)
+    des = models.CharField("后续描述", max_length=128, blank=True)
 
     rmb = models.IntegerField("所需人民币")
+
+    first_addition_sycee = models.IntegerField("首充额外元宝")
+    addition_sycee = models.IntegerField("后续额外元宝")
     sycee = models.IntegerField("充值获得元宝")
 
     class Meta:
