@@ -2,7 +2,7 @@
 
 from django.db import models
 
-class Product91Type(models.Model):
+class PurchaseType(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=16)
     continued_days = models.IntegerField("持续天数", default=0)
@@ -12,16 +12,17 @@ class Product91Type(models.Model):
         return u'%d - %s' % (self.id, self.name)
 
     class Meta:
-        db_table = 'product91_type'
-        verbose_name = '91充值类型'
-        verbose_name_plural = '91充值类型'
+        db_table = 'purchase_type'
+        verbose_name = '充值类型'
+        verbose_name_plural = '充值类型'
 
 
-class Product91(models.Model):
+class Purchase(models.Model):
     id = models.IntegerField(primary_key=True)
-    tp = models.ForeignKey(Product91Type)
+    ios_id = models.CharField("苹果ID", max_length=255, unique=True)
+    name = models.CharField("名字", blank=True)
+    tp = models.ForeignKey(PurchaseType)
 
-    display_value = models.IntegerField("显示数值")
     icon = models.CharField("图标", max_length=128, blank=True)
 
     first_des = models.CharField("首充描述", max_length=128, blank=True)
@@ -35,6 +36,6 @@ class Product91(models.Model):
 
     class Meta:
         ordering = ('id',)
-        db_table = 'product91'
-        verbose_name = '91充值'
-        verbose_name_plural = '91充值'
+        db_table = 'purchase'
+        verbose_name = '充值'
+        verbose_name_plural = '充值'

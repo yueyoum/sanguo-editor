@@ -1,17 +1,17 @@
 from django.contrib import admin
 
-from apps.purchase.models import Product91Type, Product91
+from apps.purchase.models import PurchaseType, Purchase
 
-class Product91TypeAdmin(admin.ModelAdmin):
+class PurchaseTypeAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
 
-class Product91Admin(admin.ModelAdmin):
+class PurchaseAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'tp', 'display_value', 'icon',
+        'id', 'ios_id', 'name', 'tp', 'icon',
         'first_des', 'des', 'rmb',
         'first_addition_sycee', 'addition_sycee', 'sycee'
     )
 
 
-admin.site.register(Product91Type, Product91TypeAdmin)
-admin.site.register(Product91, Product91Admin)
+admin.site.register(PurchaseType, PurchaseTypeAdmin)
+admin.site.register(Purchase, PurchaseAdmin)
