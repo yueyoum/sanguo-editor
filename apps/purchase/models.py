@@ -20,7 +20,7 @@ class PurchaseType(models.Model):
 class Purchase(models.Model):
     id = models.IntegerField(primary_key=True)
     ios_id = models.CharField("苹果ID", max_length=255, unique=True)
-    name = models.CharField("名字", blank=True)
+    name = models.CharField("名字", max_length=32, blank=True)
     tp = models.ForeignKey(PurchaseType)
 
     icon = models.CharField("图标", max_length=128, blank=True)
