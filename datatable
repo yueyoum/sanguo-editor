@@ -22,3 +22,5 @@ skill.SkillEffect:skill_effect.json
 task.Task:tasks.json
 errormsg.ErrorMsg:errormsg.json
 vip.VIP:vip.json
+purchase.PurchaseType:purchase_type.json
+purchase.Purchase:purchase.json
