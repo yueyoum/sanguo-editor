@@ -19,6 +19,7 @@ class Achievement(models.Model):
     first = models.BooleanField("起始")
     next = models.IntegerField("后续", null=True, blank=True)
     des = models.TextField("描述", blank=True)
+    reward_des = models.TextField("奖励描述", blank=True)
 
     mode = models.IntegerField("条件类型", choices=MODE)
 
