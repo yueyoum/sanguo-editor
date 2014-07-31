@@ -8,7 +8,7 @@ class PurchaseTypeAdmin(admin.ModelAdmin):
 class PurchaseAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'ios_id', 'name', 'tp', 'icon',
-        'first_des', 'des', 'rmb',
+        'first_des', 'des', 'rmb', 'rate',
         'first_addition_sycee', 'addition_sycee', 'sycee'
     )
 

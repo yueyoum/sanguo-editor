@@ -29,6 +29,7 @@ class Purchase(models.Model):
     des = models.CharField("后续描述", max_length=128, blank=True)
 
     rmb = models.IntegerField("所需人民币")
+    rate = models.IntegerField("人民币对元宝汇率")
 
     first_addition_sycee = models.IntegerField("首充额外元宝")
     addition_sycee = models.IntegerField("后续额外元宝")
