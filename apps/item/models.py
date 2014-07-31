@@ -89,6 +89,7 @@ class Stuff(models.Model):
     tp = models.IntegerField("类型", choices=TYPE)
     value = models.IntegerField("值", null=True, blank=True)
     packages = models.CommaSeparatedIntegerField("宝箱中的物品包ID", blank=True, max_length=255)
+    default_package = models.IntegerField("默认物品包", null=True, blank=True)
 
     def __unicode__(self):
         return self.name
