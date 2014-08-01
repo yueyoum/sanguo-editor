@@ -9,6 +9,7 @@ class Equipment(models.Model):
     icon = models.CharField("图标ID", max_length=32, blank=True)
     icon_large = models.CharField("大图标ID", max_length=32, blank=True)
     des = models.TextField("描述", blank=True)
+    brief_des = models.TextField("简略描述", blank=True)
 
     step = models.SmallIntegerField("阶")
     step_name = models.CharField("阶名字", max_length=12)
