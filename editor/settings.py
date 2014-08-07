@@ -51,6 +51,7 @@ INSTALLED_APPS = (
     'apps.client_config',
     'apps.vip',
     'apps.purchase',
+    'apps.forbidden_words',
 )
 
 MIDDLEWARE_CLASSES = (
