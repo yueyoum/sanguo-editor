@@ -163,3 +163,21 @@ class GameGuide(models.Model):
         ordering = ('id',)
         verbose_name = '新手引导'
         verbose_name_plural = '新手引导'
+
+class QualityColor(models.Model):
+    TP = (
+        (1, "武将"),
+        (2, "其他"),
+    )
+
+    quality = models.IntegerField("品阶")
+    tp = models.IntegerField("类型", choices=TP)
+    des = models.TextField(blank=True)
+    code_color = models.CharField("颜色代码")
+    effect = models.CharField("特效")
+
+    class Meta:
+        db_table = 'quality_color'
+        verbose_name = '品阶配置'
+        verbose_name_plural = '品阶配置'
+

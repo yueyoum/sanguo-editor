@@ -11,6 +11,7 @@ from apps.config.models import (
     Dialog,
     DialogStatement,
     FunctionDefine,
+    QualityColor,
 )
 
 class ResourceTypeAdmin(admin.ModelAdmin):
@@ -61,9 +62,17 @@ class DialogAdmin(admin.ModelAdmin):
     list_filter = ('stage_id', )
 
 
+class QualityColorAdmin(admin.ModelAdmin):
+    list_display = (
+        'quality', 'tp', 'des', 'code_color', 'effect'
+    )
+
+
+
 admin.site.register(ResourceType, ResourceTypeAdmin)
 admin.site.register(ArenaDayReward, ArenaDayRewardAdmin)
 admin.site.register(ArenaWeekReward, ArenaWeekRewardAdmin)
 admin.site.register(Notify, NotifyAdmin)
 admin.site.register(FunctionDefine, FunctionDefineAdmin)
 admin.site.register(Dialog, DialogAdmin)
+admin.site.register(QualityColor, QualityColorAdmin)
