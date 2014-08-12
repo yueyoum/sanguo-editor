@@ -173,8 +173,8 @@ class QualityColor(models.Model):
     quality = models.IntegerField("品阶")
     tp = models.IntegerField("类型", choices=TP)
     des = models.TextField(blank=True)
-    code_color = models.CharField("颜色代码")
-    effect = models.CharField("特效")
+    code_color = models.CharField("颜色代码", max_length=255)
+    effect = models.CharField("特效", max_length=255)
 
     class Meta:
         db_table = 'quality_color'
