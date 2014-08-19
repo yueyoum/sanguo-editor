@@ -89,6 +89,7 @@ class Dialog(models.Model):
         (3, '活动关卡'),
         (4, '功能开放'),
 
+        (10, '新手步骤'),
         (11, 'GUIDE_1'),
         (12, 'GUIDE_2'),
         (13, 'GUIDE_3'),
