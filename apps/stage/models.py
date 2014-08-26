@@ -99,7 +99,7 @@ class EliteStage(models.Model):
     normal_drop = models.CharField("掉落", max_length=255, blank=True)
 
     show_souls = models.CharField("展示卡魂", max_length=255, blank=True, help_text='id,id')
-    show_tp = models.ForeignKey('config.ResourceType')
+    show_tp = models.ForeignKey('config.ResourceType', null=True, blank=True)
 
 
     def __unicode__(self):
