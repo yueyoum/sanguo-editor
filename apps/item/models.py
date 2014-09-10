@@ -32,7 +32,7 @@ class Equipment(models.Model):
 
     growing = models.IntegerField("成长系数")
 
-    tip_type = models.IntegerField()
+    tip_type = models.CharField(max_length=64)
     tip_des = models.TextField()
 
 
@@ -65,7 +65,7 @@ class Gem(models.Model):
     sell_gold = models.IntegerField("售卖所的金币")
     des = models.TextField("描述", blank=True)
 
-    tip_type = models.IntegerField()
+    tip_type = models.CharField(max_length=64)
     tip_des = models.TextField()
 
     def __unicode__(self):
@@ -98,8 +98,8 @@ class Stuff(models.Model):
     value = models.IntegerField("值", null=True, blank=True)
     packages = models.CommaSeparatedIntegerField("宝箱中的物品包ID", blank=True, max_length=255)
     default_package = models.IntegerField("默认物品包", null=True, blank=True)
-    
-    tip_type = models.IntegerField()
+
+    tip_type = models.CharField(max_length=64)
     tip_des = models.TextField()
 
 
