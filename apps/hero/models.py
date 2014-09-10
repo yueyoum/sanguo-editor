@@ -44,6 +44,9 @@ class Hero(models.Model):
     des = models.TextField("描述", blank=True)
     des_prof = models.TextField(blank=True)
 
+    tip_type = models.IntegerField()
+    tip_des = models.TextField()
+
     def __unicode__(self):
         return self.name
 
