@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.core.exceptions import ValidationError
+
+from apps.goodspackage.models import Package
 
 
 class Battle(models.Model):
@@ -8,6 +11,15 @@ class Battle(models.Model):
     name = models.CharField("名字", max_length=32)
     level_limit = models.IntegerField("等级限制", default=1)
     des = models.TextField("描述", blank=True)
+
+    city_name = models.CharField("城镇名字", max_length=32)
+    city_tp = models.ForeignKey('StageType', db_column='city_tp')
+    normal_exp = models.IntegerField("普通经验")
+    normal_gold = models.IntegerField("普通金币")
+    normal_drop = models.CharField("普通掉落", max_length=255, blank=True)
+    total_hours = models.IntegerField("挂机总小时")
+    refresh_cost_gold = models.IntegerField("刷新花费")
+
 
     def __unicode__(self):
         return self.name
@@ -17,6 +29,20 @@ class Battle(models.Model):
         ordering = ('id',)
         verbose_name = "战役"
         verbose_name_plural = "战役"
+
+
+    def clean(self):
+        if not self.normal_drop:
+            return
+
+        for i in self.normal_drop.split(','):
+            try:
+                i = int(i)
+            except ValueError:
+                raise ValidationError("Package {0} not exist".format(i))
+            if not Package.objects.filter(id=i).exists():
+                raise ValidationError("Package {0} not exist".format(i))
+
 
 class StageType(models.Model):
     id = models.IntegerField(primary_key=True)

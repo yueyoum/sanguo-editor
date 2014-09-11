@@ -31,7 +31,10 @@ class ActivelyStageResources(resources.ModelResource):
 
 
 class BattleAdmin(ImportExportModelAdmin):
-    list_display = ('id', 'name', 'level_limit', 'des',)
+    list_display = ('id', 'name', 'level_limit', 'des',
+    'city_name', 'city_tp', 'normal_exp', 'normal_gold',
+                    'total_hours', 'refresh_cost_gold'
+    )
     resource_class = BattleResources
 
 
