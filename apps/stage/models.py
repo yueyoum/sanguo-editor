@@ -65,6 +65,9 @@ class Stage(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32)
 
+    battle_start = models.BooleanField("战役第一个关卡")
+    battle_end = models.BooleanField("战役最后一个关卡")
+
     bg = models.CharField("背景", max_length=32, blank=True)
     level = models.IntegerField("关卡等级")
     strength_modulus = models.FloatField("强度系数", default=2)
