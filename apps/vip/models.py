@@ -8,7 +8,7 @@ class VIP(models.Model):
     sycee = models.IntegerField("直接充值元宝", unique=True)
 
     levy = models.IntegerField("征收次数")
-    hang = models.IntegerField("挂机时间")
+    hang_addition = models.IntegerField("挂机收益加成")
     friends = models.IntegerField("好友数量上限")
     arena_buy = models.IntegerField("比武购买次数")
     stage_elite_buy = models.IntegerField("精英关卡重置次数")
