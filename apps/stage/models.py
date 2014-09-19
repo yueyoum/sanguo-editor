@@ -88,10 +88,12 @@ class Stage(models.Model):
     first_exp = models.IntegerField("首通经验")
     first_gold = models.IntegerField("首通金币")
     first_drop = models.CharField("首通掉落", max_length=255, blank=True)
+    first_show = models.CharField(max_length=255, blank=True)
 
     star_exp = models.IntegerField("三星经验")
     star_gold = models.IntegerField("三星金币")
     star_drop = models.CharField("三星掉落", max_length=255, blank=True)
+    star_show = models.CharField(max_length=255, blank=True)
 
 
     def __unicode__(self):

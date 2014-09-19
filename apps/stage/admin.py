@@ -49,8 +49,8 @@ class StageAdmin(ImportExportModelAdmin):
         'id', 'name', 'battle_start', 'battle_end', 'bg', 'level', 'strength_modulus', 'tp', 'battle',
         'open_condition', 'Monsters', 'Powers',
         'normal_exp', 'normal_gold', 'normal_drop',
-        'first_exp', 'first_gold', 'first_drop',
-        'star_exp', 'star_gold', 'star_drop',
+        'first_exp', 'first_gold', 'first_drop', 'first_show',
+        'star_exp', 'star_gold', 'star_drop', 'star_show'
     )
 
     list_filter = ('battle',)
