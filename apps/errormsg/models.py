@@ -6,6 +6,7 @@ class ErrorMsg(models.Model):
     LINK = (
         (1, 'VIP'),
         (2, '充值'),
+        (3, '好友'),
     )
     id = models.IntegerField(primary_key=True)
     error_index = models.CharField(unique=True, max_length=64)
