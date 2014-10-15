@@ -23,3 +23,26 @@ class VIP(models.Model):
         db_table = 'vip'
         verbose_name = 'VIP'
         verbose_name_plural = 'VIP'
+
+
+class VIPReward(models.Model):
+    id = models.IntegerField(primary_key=True)
+
+    item_one_type = models.ForeignKey('config.ResourceType')
+    item_one_id = models.IntegerField()
+    item_one_amount = models.IntegerField(default=1)
+
+    item_two_type = models.ForeignKey('config.ResourceType')
+    item_two_id = models.IntegerField()
+    item_two_amount = models.IntegerField(default=1)
+
+    item_three_type = models.ForeignKey('config.ResourceType')
+    item_three_id = models.IntegerField()
+    item_three_amount = models.IntegerField(default=1)
+
+    package = models.ForeignKey('goodspackage.Package')
+
+    class Meta:
+        db_table = 'vip_reward'
+        verbose_name = "VIP奖励"
+        verbose_name_plural = "VIP奖励"
