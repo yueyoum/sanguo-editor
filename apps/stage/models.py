@@ -75,6 +75,7 @@ class Stage(models.Model):
     tp = models.ForeignKey(StageType, db_column='tp')
 
     battle = models.ForeignKey(Battle, verbose_name="战役")
+    battle_open = models.BooleanField("开启对应城镇/战役挂机", default=False)
 
     open_condition = models.IntegerField("前置关卡ID", null=True, blank=True,
                                          help_text="不填写表示没有前置关卡ID"
