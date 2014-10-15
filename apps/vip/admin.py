@@ -41,4 +41,4 @@ class VIPRewardAdmin(admin.ModelAdmin):
 
 
 admin.site.register(VIP, VIPAdmin)
-admin.site.register(VIPRewardAdmin, VIPReward)
+admin.site.register(VIPReward, VIPRewardAdmin)

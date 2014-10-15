@@ -93,6 +93,7 @@ class Dialog(models.Model):
         (11, 'GUIDE_1'),
         (12, 'GUIDE_2'),
         (13, 'GUIDE_3'),
+        (14, 'GUIDE_4'),
     )
 
     START_AT = (
