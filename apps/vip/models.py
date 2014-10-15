@@ -28,15 +28,15 @@ class VIP(models.Model):
 class VIPReward(models.Model):
     id = models.IntegerField(primary_key=True)
 
-    item_one_type = models.ForeignKey('config.ResourceType')
+    item_one_type = models.ForeignKey('config.ResourceType', related_name='vip_reward_item_one')
     item_one_id = models.IntegerField()
     item_one_amount = models.IntegerField(default=1)
 
-    item_two_type = models.ForeignKey('config.ResourceType')
+    item_two_type = models.ForeignKey('config.ResourceType', related_name='vip_reward_item_two')
     item_two_id = models.IntegerField()
     item_two_amount = models.IntegerField(default=1)
 
-    item_three_type = models.ForeignKey('config.ResourceType')
+    item_three_type = models.ForeignKey('config.ResourceType', related_name='vip_reward_item_three')
     item_three_id = models.IntegerField()
     item_three_amount = models.IntegerField(default=1)
 
