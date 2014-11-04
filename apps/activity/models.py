@@ -74,7 +74,7 @@ class ActivityStaticGoodHero(ActivityReward):
 
 
 class ActivityStaticPVE(ActivityReward):
-    battle = models.ForeignKey('stage.Battle', db_column='battle_id')
+    id = models.ForeignKey('stage.Battle', primary_key=True, verbose_name='战役')
     activity = models.ForeignKey(ActivityStatic, related_name='activity_static_pves', verbose_name='活动')
 
     class Meta:

@@ -13,6 +13,8 @@ class ActivityStaticAdmin(admin.ModelAdmin):
 
 
 LIST_DISPLAY = [
+    'id',
+    'activity',
     'des',
     'icon_one_type', 'icon_one_id', 'icon_one_amount',
     'icon_two_type', 'icon_two_id', 'icon_two_amount',
@@ -21,6 +23,8 @@ LIST_DISPLAY = [
 ]
 
 REWARD_FIELDS = [
+    'id',
+    'activity',
     'des',
     ('icon_one_type', 'icon_one_id', 'icon_one_amount'),
     ('icon_two_type', 'icon_two_id', 'icon_two_amount'),
@@ -30,28 +34,20 @@ REWARD_FIELDS = [
 
 
 class CharLevelAdmin(admin.ModelAdmin):
-    list_display = tuple(['id', 'activity'] + LIST_DISPLAY)
-    fields = tuple(
-        ['id', 'activity'] + REWARD_FIELDS
-    )
+    list_display = LIST_DISPLAY
+    fields = REWARD_FIELDS
 
 class GoodHeroAdmin(admin.ModelAdmin):
-    list_display = tuple(['id', 'activity'] + LIST_DISPLAY)
-    fields = tuple(
-        ['id', 'activity'] + REWARD_FIELDS
-    )
+    list_display = LIST_DISPLAY
+    fields = REWARD_FIELDS
 
 class PVEAdmin(admin.ModelAdmin):
-    list_display = tuple(['battle', 'activity'] + LIST_DISPLAY)
-    fields = tuple(
-        ['battle', 'activity'] + REWARD_FIELDS
-    )
+    list_display = LIST_DISPLAY
+    fields = REWARD_FIELDS
 
 class PVPAdmin(admin.ModelAdmin):
-    list_display = tuple(['id', 'activity'] + LIST_DISPLAY)
-    fields = tuple(
-        ['id', 'activity'] + REWARD_FIELDS
-    )
+    list_display = LIST_DISPLAY
+    fields = REWARD_FIELDS
 
 admin.site.register(acm.ActivityStatic, ActivityStaticAdmin)
 admin.site.register(acm.ActivityStaticCharLevel, CharLevelAdmin)
