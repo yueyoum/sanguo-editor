@@ -6,10 +6,10 @@ from apps.activity import models as acm
 
 class ActivityStaticAdmin(admin.ModelAdmin):
     list_display = (
-        'tp', 'name', 'start_time', 'continued_days', 'continued_hours'
+        'id', 'tp', 'name', 'start_time', 'continued_days', 'continued_hours'
     )
 
-    ordering = ('tp',)
+    ordering = ('id',)
 
 
 LIST_DISPLAY = [
