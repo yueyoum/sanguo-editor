@@ -13,6 +13,7 @@ class ActivityStaticAdmin(admin.ModelAdmin):
 
 
 LIST_DISPLAY = [
+    'des',
     'icon_one_type', 'icon_one_id', 'icon_one_amount',
     'icon_two_type', 'icon_two_id', 'icon_two_amount',
     'icon_three_type', 'icon_three_id', 'icon_three_amount',
