@@ -79,7 +79,7 @@ class ActivityStaticPVE(ActivityReward):
 
     class Meta:
         db_table = 'activity_static_pve'
-        ordering = ('battle',)
+        ordering = ('id',)
         verbose_name = '固定活动-通过战役'
         verbose_name_plural = '固定活动-通过战役'
 
