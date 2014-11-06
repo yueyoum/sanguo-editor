@@ -25,3 +25,5 @@ vip.VIP:vip.json
 vip.VIPReward:vip_reward.json
 purchase.PurchaseType:purchase_type.json
 purchase.Purchase:purchase.json
+activity.ActivityStatic:activity_static.json
+activity.ActivityStaticCondition:activity_static_condition.json
