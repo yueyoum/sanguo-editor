@@ -6,6 +6,7 @@ from django.db import models
 class Effect(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField("名字", max_length=32, blank=True)
+    is_good_buff = models.BooleanField("增益效果", default=True)
     des = models.CharField("说明", max_length=32, blank=True)
     buff_icon = models.CharField("Buff图标", max_length=32, blank=True)
     special = models.CharField("特效", max_length=32, blank=True)

@@ -6,7 +6,7 @@ from apps.skill.models import Effect, Skill, SkillEffect
 
 class EffectAdmin(admin.ModelAdmin):
     list_display =  (
-        'id', 'name', 'des', 'buff_icon', 'special'
+        'id', 'name', 'is_good_buff', 'des', 'buff_icon', 'special'
     )
 
 class SkillEffectInline(admin.TabularInline):
