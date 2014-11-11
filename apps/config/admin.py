@@ -27,7 +27,7 @@ class ArenaDayRewardAdmin(admin.ModelAdmin):
 
 class ArenaWeekRewardAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'rank_des', 'packages'
+        'id', 'rank_des', 'stuff'
     )
 
 
