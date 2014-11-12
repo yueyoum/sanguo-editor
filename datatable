@@ -2,6 +2,7 @@ config.ArenaDayReward:arena_day_reward.json
 config.ArenaWeekReward:arena_week_reward.json
 config.FunctionDefine:function_define.json
 config.ResourceType:resource_type.json
+config.ValueSetting:value_setting.json
 achievement.Achievement:achievements.json
 official.Official:official.json
 hero.Hero:heros.json
