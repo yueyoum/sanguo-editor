@@ -133,6 +133,8 @@ class EliteStage(models.Model):
     show_souls = models.CharField("展示id", max_length=255, blank=True, help_text='id,id')
     show_tp = models.ForeignKey('config.ResourceType', null=True, blank=True)
 
+    drop_hero_ids = models.CharField("掉落武将id", max_length=255, blank=True, help_text='id,id')
+
 
     def __unicode__(self):
         return u'<EliteStage: %s>' % self.name
