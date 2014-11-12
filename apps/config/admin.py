@@ -12,6 +12,7 @@ from apps.config.models import (
     DialogStatement,
     FunctionDefine,
     QualityColor,
+    ValueSetting,
 )
 
 class ResourceTypeAdmin(admin.ModelAdmin):
@@ -68,6 +69,10 @@ class QualityColorAdmin(admin.ModelAdmin):
     )
 
 
+class ValueSettingAdmin(admin.ModelAdmin):
+    list_display = (
+        'id', 'value'
+    )
 
 admin.site.register(ResourceType, ResourceTypeAdmin)
 admin.site.register(ArenaDayReward, ArenaDayRewardAdmin)
@@ -76,3 +81,4 @@ admin.site.register(Notify, NotifyAdmin)
 admin.site.register(FunctionDefine, FunctionDefineAdmin)
 admin.site.register(Dialog, DialogAdmin)
 admin.site.register(QualityColor, QualityColorAdmin)
+admin.site.register(ValueSetting, ValueSettingAdmin)

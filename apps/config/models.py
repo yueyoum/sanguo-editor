@@ -183,3 +183,14 @@ class QualityColor(models.Model):
         verbose_name = '品阶配置'
         verbose_name_plural = '品阶配置'
 
+
+# 数值设定
+class ValueSetting(models.Model):
+    id = models.CharField(max_length=255, primary_key=True)
+    value = models.IntegerField()
+
+    class Meta:
+        db_table = 'value_setting'
+        verbose_name = '数值设定'
+        verbose_name_plural = '数值设定'
+
