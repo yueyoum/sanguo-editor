@@ -69,6 +69,7 @@ class FunctionDefine(models.Model):
     char_level = models.IntegerField("君主等级条件", default=0)
     stage_id = models.IntegerField("关卡ID条件", default=0)
     text = models.CharField("提示文字", max_length=255, blank=True)
+    open_condition_des = models.CharField("开启条件描述", max_length=255, blank=True)
 
 
     def __unicode__(self):

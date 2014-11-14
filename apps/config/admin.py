@@ -46,6 +46,7 @@ class NotifyAdmin(ImportExportModelAdmin):
 class FunctionDefineAdmin(admin.ModelAdmin):
     list_display = (
         'id', 'name', 'icon', 'char_level', 'stage_id', 'text',
+        'open_condition_des',
     )
 
 class DialogStatementinline(admin.TabularInline):
