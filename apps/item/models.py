@@ -84,6 +84,7 @@ class Stuff(models.Model):
         (1, '材料'),
         (2, '宝物'),
         (3, "宝箱"),
+        (4, "马魂"),
     )
 
     id = models.IntegerField(primary_key=True)
