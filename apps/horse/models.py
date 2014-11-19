@@ -11,7 +11,7 @@ class Horse(models.Model):
 
     des = models.TextField("描述", blank=True)
 
-    level_needs = models.CharField("角色等级需求", default=0)
+    level_needs = models.IntegerField("角色等级需求", default=0)
 
     quality = models.IntegerField("品质")
     crit = models.IntegerField("暴击")
