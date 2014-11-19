@@ -28,3 +28,4 @@ purchase.PurchaseType:purchase_type.json
 purchase.Purchase:purchase.json
 activity.ActivityStatic:activity_static.json
 activity.ActivityStaticCondition:activity_static_condition.json
+horse.Horse:horse.json
