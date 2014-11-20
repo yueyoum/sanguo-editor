@@ -22,6 +22,8 @@ class Horse(models.Model):
     strength_gold_needs = models.IntegerField("强化所需金币")
     strength_sycee_needs = models.IntegerField("强化所需元宝")
 
+    sell_gold = models.IntegerField("售价")
+
     def __unicode__(self):
         return self.name
 

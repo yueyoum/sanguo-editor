@@ -10,6 +10,7 @@ class HorseAdmin(admin.ModelAdmin):
         'hp_upper_limit',
         'strength_gold_needs',
         'strength_sycee_needs',
+        'sell_gold',
     )
 
 admin.site.register(Horse, HorseAdmin)
