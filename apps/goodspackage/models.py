@@ -4,6 +4,7 @@ from django.db import models
 
 from apps.hero.models import Hero
 from apps.item.models import Equipment, Gem, Stuff
+from apps.horse.models import Horse
 
 
 class Package(models.Model):
@@ -20,6 +21,7 @@ class Package(models.Model):
     equips = models.ManyToManyField(Equipment, through='EquipInfo')
     gems = models.ManyToManyField(Gem, through='GemInfo')
     stuffs = models.ManyToManyField(Stuff, through='StuffInfo')
+    horses = models.ManyToManyField(Horse, through='HorseInfo')
 
     gold = models.IntegerField(default=0, verbose_name="金币")
     sycee = models.IntegerField(default=0, verbose_name='元宝')
@@ -92,11 +94,21 @@ class Package(models.Model):
                 'prob': s.prob,
             })
 
+        horses = self.horseinfo_set.all()
+        horses_data = []
+        for h in horses:
+            horses_data.append({
+                'id': h.horse.id,
+                'amount': h.amount,
+                'prob': h.prob,
+            })
+
         data['heros'] = heros_data
         data['souls'] = souls_data
         data['equipments'] = equips_data
         data['gems'] = gems_data
         data['stuffs'] = stuffs_data
+        data['horses'] = horses_data
         return data
 
 
@@ -152,3 +164,8 @@ class StuffInfo(models.Model):
     class Meta:
         db_table = 'package_stuff_info'
 
+class HorseInfo(models.Model):
+    horse = models.ForeignKey(Horse)
+    package = models.ForeignKey(Package)
+    amount = models.IntegerField(default=1, verbose_name='数量')
+    prob = models.IntegerField(default=100000, verbose_name='概率')

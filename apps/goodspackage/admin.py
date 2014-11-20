@@ -9,6 +9,7 @@ from apps.goodspackage.models import (
     EquipInfo,
     GemInfo,
     StuffInfo,
+    HorseInfo,
 )
 
 
@@ -32,13 +33,19 @@ class StuffInfoInline(admin.TabularInline):
     model = StuffInfo
     extra = 1
 
+class HorsesInfoInline(admin.TabularInline):
+    model = HorseInfo
+    extra = 1
+
+
 class PackageAdmin(admin.ModelAdmin):
     inlines = (
         HeroInfoInline, SoulInfoInline, EquipInfoInline,
-        GemInfoInline, StuffInfoInline
+        GemInfoInline, StuffInfoInline, HorsesInfoInline,
     )
 
-    list_display = ('id', 'name', 'mode', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'Souls', 'Equips', 'Gems', 'Stuffs')
+    list_display = ('id', 'name', 'mode', 'gold', 'sycee', 'exp', 'official_exp', 'Heros', 'Souls', 'Equips', 'Gems', 'Stuffs',
+    'Horses')
 
     def Heros(self, obj):
         data = obj.heroinfo_set.all()
@@ -96,6 +103,18 @@ class PackageAdmin(admin.ModelAdmin):
         texts = [_make_text(x) for x in data]
         return '<br />'.join(texts)
     Stuffs.allow_tags = True
+
+    def Horses(self, obj):
+        data = obj.horseinfo_set.all()
+        def _make_text(x):
+            text = u'{0}, 数量: {1}, 概率: {2}'.format(
+                x.horse.name, x.amount, x.prob
+            )
+            return text
+
+        texts = [_make_text(x) for x in data]
+        return '<br />'.join(texts)
+    Horses.allow_tags = True
 
 
 admin.site.register(Package, PackageAdmin)
