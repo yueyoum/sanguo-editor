@@ -15,6 +15,7 @@ class VIPAdmin(ImportExportModelAdmin):
         'id', 'sycee', 'levy', 'hang_addition', 'friends', 'arena_buy',
         'stage_elite_buy', 'stage_elite_buy_total',
         'plunder', 'plunder_addition', 'prisoner_get',
+        'horse_strength_free',
         'des',
     )
 

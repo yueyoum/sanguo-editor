@@ -17,6 +17,8 @@ class VIP(models.Model):
     plunder_addition = models.IntegerField("掠夺资源加成")
     prisoner_get = models.IntegerField("招降概率加成")
 
+    horse_strength_free = models.IntegerField("坐骑免费培养次数")
+
     des = models.TextField()
 
     class Meta:
