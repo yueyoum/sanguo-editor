@@ -8,6 +8,8 @@ class HorseAdmin(admin.ModelAdmin):
         'attack_upper_limit',
         'defense_upper_limit',
         'hp_upper_limit',
+        'strength_gold_needs',
+        'strength_sycee_needs',
     )
 
 admin.site.register(Horse, HorseAdmin)

@@ -19,6 +19,9 @@ class Horse(models.Model):
     defense_upper_limit = models.IntegerField("防御上限")
     hp_upper_limit = models.IntegerField("生命上限")
 
+    strength_gold_needs = models.IntegerField("强化所需金币")
+    strength_sycee_needs = models.IntegerField("强化所需元宝")
+
     def __unicode__(self):
         return self.name
 
