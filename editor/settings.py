@@ -54,6 +54,7 @@ INSTALLED_APPS = (
     'apps.forbidden_words',
     'apps.activity',
     'apps.horse',
+    'apps.union',
 )
 
 MIDDLEWARE_CLASSES = (

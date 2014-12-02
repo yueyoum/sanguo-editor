@@ -29,3 +29,4 @@ purchase.Purchase:purchase.json
 activity.ActivityStatic:activity_static.json
 activity.ActivityStaticCondition:activity_static_condition.json
 horse.Horse:horse.json
+union.UnionStore:union_store.json
