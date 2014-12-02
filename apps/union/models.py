@@ -10,13 +10,20 @@ class UnionStore(models.Model):
         (3, '道具'),
     )
 
+    BUFF = (
+        ('attack', '攻击'),
+        ('defense', '防御'),
+        ('hp', '生命')
+    )
+
 
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=32)
-
     tp = models.IntegerField("类型", choices=TYPE)
+
+    used_for = models.CharField("BUFF用于", max_length=32, blank=True, help_text='非BUFF不用选择')
+    value = models.IntegerField("值", blank=True, null=True, help_text='buff的值，或者其他物品的ID')
     des = models.TextField("说明", blank=True)
-    value = models.IntegerField("值", blank=True, null=True)
     union_coin = models.IntegerField("所需工会币")
 
     def __unicode__(self):
