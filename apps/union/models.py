@@ -11,9 +11,6 @@ class UnionStore(models.Model):
     des = models.TextField("说明", blank=True)
     union_coin = models.IntegerField("所需工会币")
 
-    def __unicode__(self):
-        return self.name
-
     class Meta:
         db_table = 'union_store'
         verbose_name = '工会商店'
