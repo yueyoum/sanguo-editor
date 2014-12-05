@@ -17,4 +17,4 @@ class UnionBossAdmin(admin.ModelAdmin):
 
 admin.site.register(UnionStore, UnionStoreAdmin)
 admin.site.register(UnionCheckin, UnionCheckinAdmin)
-
+admin.site.register(UnionBoss, UnionBossAdmin)
