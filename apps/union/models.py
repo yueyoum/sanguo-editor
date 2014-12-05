@@ -52,6 +52,11 @@ class UnionBoss(models.Model):
     skill = models.IntegerField("技能")
     skill_rounds = models.IntegerField("几回合放技能")
 
+    quality = models.IntegerField("品质")
+    quality_name = models.CharField("品质名字")
+    tp_name = models.CharField("类型名字")
+
+
     class Meta:
         db_table = 'union_boss'
         verbose_name = "工会BOSS"
