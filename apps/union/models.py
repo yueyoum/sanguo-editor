@@ -53,8 +53,8 @@ class UnionBoss(models.Model):
     skill_rounds = models.IntegerField("几回合放技能")
 
     quality = models.IntegerField("品质")
-    quality_name = models.CharField("品质名字")
-    tp_name = models.CharField("类型名字")
+    quality_name = models.CharField("品质名字", max_length=32)
+    tp_name = models.CharField("类型名字", max_length=32)
 
 
     class Meta:
