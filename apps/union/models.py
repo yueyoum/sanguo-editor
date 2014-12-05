@@ -34,3 +34,26 @@ class UnionCheckin(models.Model):
         db_table = 'union_checkin'
         verbose_name = "工会签到"
         verbose_name_plural = "工会签到"
+
+
+class UnionBoss(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField("名字", max_length=255)
+    image = models.CharField("图片", max_length=255)
+    union_level = models.IntegerField("所需工会等级")
+    contribute_points = models.IntegerField("通关贡献值")
+
+    attack = models.IntegerField("攻击")
+    defense = models.IntegerField("防御")
+    hp = models.IntegerField("生命")
+    crit = models.IntegerField("暴击")
+
+    default_skill = models.IntegerField("默认技能")
+    skill = models.IntegerField("技能")
+    skill_rounds = models.IntegerField("几回合放技能")
+
+    class Meta:
+        db_table = 'union_boss'
+        verbose_name = "工会BOSS"
+        verbose_name_plural = "工会BOSS"
+
