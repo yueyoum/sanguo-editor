@@ -77,3 +77,14 @@ class UnionLevel(models.Model):
         db_table = 'union_level'
         verbose_name = '工会等级'
         verbose_name_plural = '工会等级'
+
+
+class UnionPosition(models.Model):
+    id = models.IntegerField("职务等级", primary_key=True)
+    name = models.CharField("职务名字", max_length=32, blank=True)
+    contributes_needs = models.IntegerField("升级到下一级所需贡献度")
+
+    class Meta:
+        db_table = 'union_position'
+        verbose_name = '工会职务'
+        verbose_name_plural = '工会职务'

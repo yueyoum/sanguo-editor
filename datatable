@@ -33,3 +33,4 @@ union.UnionStore:union_store.json
 union.UnionCheckin:union_checkin.json
 union.UnionBoss:union_boss.json
 union.UnionLevel:union_level.json
+union.UnionPosition:union_position.json
