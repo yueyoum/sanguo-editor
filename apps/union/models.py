@@ -11,6 +11,10 @@ class UnionStore(models.Model):
     des = models.TextField("说明", blank=True)
     union_coin = models.IntegerField("所需工会币")
 
+    max_buy_times = models.IntegerField("最大购买次数", default=0,
+                                        help_text='0表示没有限制'
+                                        )
+
     class Meta:
         db_table = 'union_store'
         verbose_name = '工会商店'

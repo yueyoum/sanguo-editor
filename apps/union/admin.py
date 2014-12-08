@@ -3,7 +3,7 @@ from django.contrib import admin
 from apps.union.models import UnionStore, UnionCheckin, UnionBoss, UnionLevel, UnionPosition
 
 class UnionStoreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'tp', 'value', 'des', 'union_coin')
+    list_display = ('id', 'tp', 'value', 'des', 'union_coin', 'max_buy_times')
 
 
 class UnionCheckinAdmin(admin.ModelAdmin):
