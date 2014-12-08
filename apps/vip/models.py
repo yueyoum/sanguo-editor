@@ -18,6 +18,7 @@ class VIP(models.Model):
     prisoner_get = models.IntegerField("招降概率加成")
 
     horse_strength_free = models.IntegerField("坐骑免费培养次数")
+    union_checkin = models.IntegerField("工会签到次数")
 
     des = models.TextField()
 
