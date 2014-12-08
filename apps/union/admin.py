@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from apps.union.models import UnionStore, UnionCheckin, UnionBoss
+from apps.union.models import UnionStore, UnionCheckin, UnionBoss, UnionLevel
 
 class UnionStoreAdmin(admin.ModelAdmin):
     list_display = ('id', 'tp', 'value', 'des', 'union_coin')
@@ -16,6 +16,13 @@ class UnionBossAdmin(admin.ModelAdmin):
     'quality', 'quality_name', 'tp_name',
     )
 
+
+class UnionLevelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'member_limits', 'union_battle_open',
+    'union_store_open', 'union_boss_open', 'contributes_needs'
+    )
+
 admin.site.register(UnionStore, UnionStoreAdmin)
 admin.site.register(UnionCheckin, UnionCheckinAdmin)
 admin.site.register(UnionBoss, UnionBossAdmin)
+admin.site.register(UnionLevel, UnionBossAdmin)

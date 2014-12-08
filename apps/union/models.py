@@ -62,3 +62,18 @@ class UnionBoss(models.Model):
         verbose_name = "工会BOSS"
         verbose_name_plural = "工会BOSS"
 
+
+class UnionLevel(models.Model):
+    id = models.IntegerField("等级", primary_key=True)
+    member_limits = models.IntegerField("成员上限")
+
+    union_battle_open = models.BooleanField("工会战开放")
+    union_store_open = models.BooleanField("工会商店开放")
+    union_boss_open = models.BooleanField("工会BOSS开放")
+
+    contributes_needs = models.IntegerField("升级到下一级所需贡献度")
+
+    class Meta:
+        db_table = 'union_level'
+        verbose_name = '工会等级'
+        verbose_name_plural = '工会等级'
