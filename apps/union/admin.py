@@ -25,4 +25,4 @@ class UnionLevelAdmin(admin.ModelAdmin):
 admin.site.register(UnionStore, UnionStoreAdmin)
 admin.site.register(UnionCheckin, UnionCheckinAdmin)
 admin.site.register(UnionBoss, UnionBossAdmin)
-admin.site.register(UnionLevel, UnionBossAdmin)
+admin.site.register(UnionLevel, UnionLevelAdmin)
