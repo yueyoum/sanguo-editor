@@ -66,6 +66,19 @@ class UnionBoss(models.Model):
         verbose_name = "工会BOSS"
         verbose_name_plural = "工会BOSS"
 
+class UnionBossReward(models.Model):
+    id = models.IntegerField("伤害排名（下限）", primary_key=True, help_text='0表示最终击杀.下限至4~10名，这里就填写10')
+    des = models.CharField("描述", max_length=255, blank=True)
+    coin = models.IntegerField("获得工会币")
+
+    class Meta:
+        db_table = 'union_boss_reward'
+        verbose_name = '工会BOSS奖励'
+        verbose_name_plural = '工会BOSS奖励'
+
+
+
+
 
 class UnionLevel(models.Model):
     id = models.IntegerField("等级", primary_key=True)

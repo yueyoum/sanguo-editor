@@ -1,6 +1,13 @@
 from django.contrib import admin
 
-from apps.union.models import UnionStore, UnionCheckin, UnionBoss, UnionLevel, UnionPosition
+from apps.union.models import (
+    UnionStore,
+    UnionCheckin,
+    UnionBoss,
+    UnionLevel,
+    UnionPosition,
+    UnionBossReward,
+)
 
 class UnionStoreAdmin(admin.ModelAdmin):
     list_display = ('id', 'tp', 'value', 'des', 'union_coin', 'max_buy_times')
@@ -17,6 +24,10 @@ class UnionBossAdmin(admin.ModelAdmin):
     )
 
 
+class UnionBossRewardAdmin(admin.ModelAdmin):
+    list_display = ('id', 'des', 'coin')
+
+
 class UnionLevelAdmin(admin.ModelAdmin):
     list_display = ('id', 'member_limits', 'union_battle_open',
     'union_store_open', 'union_boss_open', 'contributes_needs'
@@ -30,5 +41,6 @@ class UnionPositionAdmin(admin.ModelAdmin):
 admin.site.register(UnionStore, UnionStoreAdmin)
 admin.site.register(UnionCheckin, UnionCheckinAdmin)
 admin.site.register(UnionBoss, UnionBossAdmin)
+admin.site.register(UnionBossReward, UnionBossRewardAdmin)
 admin.site.register(UnionLevel, UnionLevelAdmin)
 admin.site.register(UnionPosition, UnionPositionAdmin)
