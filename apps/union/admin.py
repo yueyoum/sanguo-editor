@@ -40,7 +40,7 @@ class UnionPositionAdmin(admin.ModelAdmin):
 
 
 class UnionBattleRewardAdmin(admin.ModelAdmin):
-    list_display = ('id', 'des', 'coin', 'contributes_points')
+    list_display = ('id', 'des', 'coin', 'contribute_points')
 
 
 admin.site.register(UnionStore, UnionStoreAdmin)
