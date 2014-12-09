@@ -25,7 +25,7 @@ class UnionBossAdmin(admin.ModelAdmin):
 
 
 class UnionBossRewardAdmin(admin.ModelAdmin):
-    list_display = ('id', 'des', 'coin')
+    list_display = ('id', 'des', 'coin', 'mail_title', 'mail_content')
 
 
 class UnionLevelAdmin(admin.ModelAdmin):
