@@ -7,6 +7,7 @@ from apps.union.models import (
     UnionLevel,
     UnionPosition,
     UnionBossReward,
+    UnionBattleReward,
 )
 
 class UnionStoreAdmin(admin.ModelAdmin):
@@ -38,9 +39,14 @@ class UnionPositionAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'contributes_needs')
 
 
+class UnionBattleRewardAdmin(admin.ModelAdmin):
+    list_display = ('id', 'des', 'coin', 'contributes_points')
+
+
 admin.site.register(UnionStore, UnionStoreAdmin)
 admin.site.register(UnionCheckin, UnionCheckinAdmin)
 admin.site.register(UnionBoss, UnionBossAdmin)
 admin.site.register(UnionBossReward, UnionBossRewardAdmin)
 admin.site.register(UnionLevel, UnionLevelAdmin)
 admin.site.register(UnionPosition, UnionPositionAdmin)
+admin.site.register(UnionBattleReward, UnionBattleRewardAdmin)

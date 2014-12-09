@@ -33,5 +33,6 @@ union.UnionStore:union_store.json
 union.UnionCheckin:union_checkin.json
 union.UnionBoss:union_boss.json
 union.UnionBossReward:union_boss_reward.json
+union.UnionBattleReward:union_battle_reward.json
 union.UnionLevel:union_level.json
 union.UnionPosition:union_position.json
