@@ -11,9 +11,7 @@ class UnionStore(models.Model):
     des = models.TextField("说明", blank=True)
     union_coin = models.IntegerField("所需工会币")
 
-    max_buy_times = models.IntegerField("最大购买次数", default=0,
-                                        help_text='0表示没有限制'
-                                        )
+
 
     class Meta:
         db_table = 'union_store'
@@ -61,6 +59,8 @@ class UnionBoss(models.Model):
     tp_name = models.CharField("类型名字", max_length=32)
 
 
+
+
     class Meta:
         db_table = 'union_boss'
         verbose_name = "工会BOSS"
@@ -101,6 +101,7 @@ class UnionLevel(models.Model):
     union_boss_open = models.BooleanField("工会BOSS开放")
 
     contributes_needs = models.IntegerField("升级到下一级所需贡献度")
+    buff_max_buy_times = models.IntegerField("BUFF最大购买次数")
 
     class Meta:
         db_table = 'union_level'

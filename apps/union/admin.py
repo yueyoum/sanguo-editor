@@ -11,7 +11,7 @@ from apps.union.models import (
 )
 
 class UnionStoreAdmin(admin.ModelAdmin):
-    list_display = ('id', 'tp', 'value', 'des', 'union_coin', 'max_buy_times')
+    list_display = ('id', 'tp', 'value', 'des', 'union_coin')
 
 
 class UnionCheckinAdmin(admin.ModelAdmin):
@@ -31,7 +31,8 @@ class UnionBossRewardAdmin(admin.ModelAdmin):
 
 class UnionLevelAdmin(admin.ModelAdmin):
     list_display = ('id', 'member_limits', 'union_battle_open',
-    'union_store_open', 'union_boss_open', 'contributes_needs'
+    'union_store_open', 'union_boss_open', 'contributes_needs',
+    'buff_max_buy_times',
     )
 
 
