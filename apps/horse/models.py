@@ -10,6 +10,7 @@ class Horse(models.Model):
     image = models.CharField("图片", max_length=255, blank=True)
 
     des = models.TextField("描述", blank=True)
+    short_des = models.TextField("简介", blank=True)
 
     level_needs = models.IntegerField("角色等级需求", default=0)
 

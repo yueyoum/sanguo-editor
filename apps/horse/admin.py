@@ -3,7 +3,7 @@ from django.contrib import admin
 from apps.horse.models import Horse
 
 class HorseAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'avatar', 'image', 'des',
+    list_display = ('id', 'name', 'avatar', 'image', 'des', 'short_des',
         'quality', 'crit',
         'attack_upper_limit',
         'defense_upper_limit',
