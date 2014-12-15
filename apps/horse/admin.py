@@ -11,7 +11,8 @@ class HorseAdmin(admin.ModelAdmin):
         'strength_gold_needs',
         'strength_sycee_needs',
         'sell_gold',
+        'tip_type',
+        'tip_des',
     )
 
 admin.site.register(Horse, HorseAdmin)
-

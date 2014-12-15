@@ -24,6 +24,8 @@ class Horse(models.Model):
     strength_sycee_needs = models.IntegerField("强化所需元宝")
 
     sell_gold = models.IntegerField("售价")
+    tip_type = models.CharField(max_length=64)
+    tip_des = models.TextField()
 
     def __unicode__(self):
         return self.name
