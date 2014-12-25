@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.db.models import Q
 
 
 class UnionStore(models.Model):
     id = models.IntegerField(primary_key=True)
-    tp = models.ForeignKey('config.ResourceType', verbose_name='类型')
+    tp = models.ForeignKey('config.ResourceType', verbose_name='类型', limit_choices_to=Q(id__in=[9,10,11,12,13]))
 
     value = models.IntegerField("值", blank=True, null=True, help_text='buff的值，或者其他物品的ID')
     des = models.TextField("说明", blank=True)
