@@ -20,6 +20,8 @@ class Battle(models.Model):
     total_hours = models.IntegerField("挂机总小时")
     refresh_cost_gold = models.IntegerField("刷新花费")
 
+    open_condition_des = models.CharField("城镇开启条件描述")
+
 
     def __unicode__(self):
         return self.name
