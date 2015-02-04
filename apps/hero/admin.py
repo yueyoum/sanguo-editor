@@ -57,6 +57,8 @@ class MonsterAdmin(ImportExportModelAdmin):
         'skills', 'default_skill', 'anger',
     )
 
+    list_filter = ('tp_name',)
+
     resource_class = MonsterResources
 
 

@@ -55,6 +55,7 @@ INSTALLED_APPS = (
     'apps.activity',
     'apps.horse',
     'apps.union',
+    'apps.wuxing',
 )
 
 MIDDLEWARE_CLASSES = (
