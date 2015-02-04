@@ -32,7 +32,7 @@ class HeroAdmin(ImportExportModelAdmin):
     )
 
     list_filter = (
-        'tp_name', 'country_name', 'gender_name', 'quality_name'
+        'tp', 'country_name', 'gender_name', 'quality_name'
     )
     resource_class = HeroResources
 
@@ -57,7 +57,7 @@ class MonsterAdmin(ImportExportModelAdmin):
         'skills', 'default_skill', 'anger',
     )
 
-    list_filter = ('tp_name',)
+    list_filter = ('tp',)
 
     resource_class = MonsterResources
 
