@@ -4,7 +4,7 @@ from django.db import models
 
 class WuXing(models.Model):
     NAMES = (
-        '金', '木', '水', '火', '土'
+        u'金', u'木', u'水', u'火', u'土'
     )
 
     NAMES_CHOICES = [(n, n) for n in NAMES]
@@ -24,3 +24,7 @@ class WuXing(models.Model):
         db_table = 'wuxing'
         verbose_name = '五行'
         verbose_name_plural = '五行'
+
+    def save(self, *args, **kwargs):
+        self.id = self.NAMES.index(self.name) + 1
+        super(WuXing, self).save(*args, **kwargs)

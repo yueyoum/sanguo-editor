@@ -9,8 +9,5 @@ class WuxingAdmin(admin.ModelAdmin):
 
     exclude = ('id',)
 
-    def save_model(self, request, obj, form, change):
-        obj.id = WuXing.NAMES.index(obj.name) + 1
-        obj.save()
 
 admin.site.register(WuXing, WuxingAdmin)
