@@ -18,7 +18,7 @@ class MonsterResources(resources.ModelResource):
 class HeroAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'Avatar', 'Image',
-        'tp', 'country', 'country_name',
+        'tp', 'wuxing_exp', 'country', 'country_name',
         'gender', 'gender_name',
         'special_equip_cls', 'special_addition',
         'quality', 'quality_name',

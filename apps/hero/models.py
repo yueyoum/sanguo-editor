@@ -9,6 +9,7 @@ class Hero(models.Model):
     image = models.CharField("卡牌", max_length=32)
 
     tp = models.CharField("五行类型", max_length=255, help_text='1,2')
+    wuxing_exp = models.IntegerField("五行经验", default=1)
 
     country = models.IntegerField("国家")
     country_name = models.CharField("国家名字", max_length=32)
