@@ -18,7 +18,7 @@ class MonsterResources(resources.ModelResource):
 class HeroAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'Avatar', 'Image',
-        'tp', 'tp_name', 'country', 'country_name',
+        'tp', 'country', 'country_name',
         'gender', 'gender_name',
         'special_equip_cls', 'special_addition',
         'quality', 'quality_name',
@@ -52,7 +52,7 @@ class HeroAdmin(ImportExportModelAdmin):
 class MonsterAdmin(ImportExportModelAdmin):
     list_display = (
         'id', 'name', 'Image',
-        'tp', 'tp_name', 'quality',
+        'tp', 'quality',
         'attack', 'defense', 'hp', 'crit', 'dodge',
         'skills', 'default_skill', 'anger',
     )

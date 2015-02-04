@@ -8,8 +8,7 @@ class Hero(models.Model):
     avatar = models.CharField("头像", max_length=32)
     image = models.CharField("卡牌", max_length=32)
 
-    tp = models.IntegerField("类型")
-    tp_name = models.CharField("类型名字", max_length=32)
+    tp = models.CharField("五行类型", max_length=255, help_text='1,2')
 
     country = models.IntegerField("国家")
     country_name = models.CharField("国家名字", max_length=32)
@@ -64,8 +63,7 @@ class Monster(models.Model):
     name = models.CharField("名字", max_length=16)
     image = models.CharField("卡牌", max_length=32)
 
-    tp = models.IntegerField("类型")
-    tp_name = models.CharField("类型名字", max_length=32)
+    tp = models.CharField("五行类型", max_length=255, help_text='1,2')
 
     quality = models.IntegerField("品质")
     attack = models.FloatField("攻击成长")
