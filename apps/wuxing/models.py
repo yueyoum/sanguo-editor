@@ -2,6 +2,7 @@
 
 from django.db import models
 
+
 class WuXing(models.Model):
     NAMES = (
         u'金', u'木', u'水', u'火', u'土'
@@ -19,6 +20,8 @@ class WuXing(models.Model):
     to_3 = models.IntegerField("对水属性百分比")
     to_4 = models.IntegerField("对火属性百分比")
     to_5 = models.IntegerField("对土属性百分比")
+
+    des = models.TextField("描述", blank=True)
 
     class Meta:
         db_table = 'wuxing'
