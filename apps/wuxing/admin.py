@@ -1,6 +1,9 @@
 from django.contrib import admin
 
-from apps.wuxing.models import WuXing
+from apps.wuxing.models import WuXing, WuXingLevel
+
+class WuxingLevelAdmin(admin.ModelAdmin):
+    list_display = ('id', 'exp')
 
 class WuxingAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'icon', 'values',
@@ -9,5 +12,5 @@ class WuxingAdmin(admin.ModelAdmin):
 
     exclude = ('id',)
 
-
+admin.site.register(WuXingLevel, WuxingLevelAdmin)
 admin.site.register(WuXing, WuxingAdmin)

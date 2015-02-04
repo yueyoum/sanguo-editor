@@ -37,3 +37,4 @@ union.UnionBattleReward:union_battle_reward.json
 union.UnionLevel:union_level.json
 union.UnionPosition:union_position.json
 wuxing.WuXing:wuxing.json
+wuxing.WuXingLevel:wuxing_level.json

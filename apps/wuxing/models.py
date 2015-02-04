@@ -3,6 +3,16 @@
 from django.db import models
 
 
+class WuXingLevel(models.Model):
+    id = models.IntegerField("Level", primary_key=True)
+    exp = models.IntegerField("升级到下一级所需经验")
+
+    class Meta:
+        db_table = 'wuxing_level'
+        verbose_name = '五行等级经验'
+        verbose_name_plural = '五行等级经验'
+
+
 class WuXing(models.Model):
     NAMES = (
         u'金', u'木', u'水', u'火', u'土'
