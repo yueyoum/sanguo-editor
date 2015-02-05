@@ -28,10 +28,6 @@ class Achievement(models.Model):
     condition_value = models.CharField("条件值", max_length=255)
 
     sycee = models.IntegerField("奖励元宝", null=True, blank=True)
-    buff_used_for = models.CharField("BUFF用于", max_length=32, blank=True)
-    buff_name = models.CharField("BUFF名称", max_length=32, blank=True)
-    buff_value = models.IntegerField("BUFF值", null=True, blank=True)
-
     package = models.CharField("奖励包", max_length=255, blank=True)
 
     def __unicode__(self):
