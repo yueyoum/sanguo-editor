@@ -37,6 +37,7 @@ class ActivityStatic(models.Model):
     TRIGGER_ACTIONS = (
         ('get_hero', "点将"),
         ('open_box', "开启宝箱"),
+        ('elite_stage_battle', "精英副本战斗")
     )
 
 
@@ -50,6 +51,7 @@ class ActivityStatic(models.Model):
 
     condition_type = models.IntegerField("条件类型", choices=CON_TYPE)
     trigger_action_name = models.CharField("触发操作名称", max_length=255, choices=TRIGGER_ACTIONS, blank=True)
+    trigger_action_condition_ids = models.CommaSeparatedIntegerField("触发操作条件ID列表", max_length=255, blank=True)
 
     start_time = models.DateTimeField("开始时间", null=True, blank=True,
                                       help_text="不填写为从开服算起")
@@ -67,6 +69,8 @@ class ActivityStatic(models.Model):
     current_des = models.CharField("当前描述", max_length=255)
 
     conditions = models.CommaSeparatedIntegerField("条件ID", blank=True, max_length=255, help_text='id,id,id')
+
+    package = models.ForeignKey('goodspackage.Package', verbose_name='物品包', null=True, blank=True)
 
 
     def __unicode__(self):
