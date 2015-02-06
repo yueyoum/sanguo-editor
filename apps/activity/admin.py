@@ -7,7 +7,8 @@ from apps.activity.models import ActivityStatic, ActivityStaticCondition
 
 class ActivityStaticAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name', 'tp', 'mode', 'des', 'condition_type', 'start_time', 'continued_days', 'continued_hours',
+        'id', 'name',  'category', 'tp', 'mode', 'des', 'condition_type', 'trigger_action_name',
+        'start_time', 'continued_days', 'interval_days', 'interval_times',
         'current_des', 'conditions',
     )
 
@@ -41,6 +42,7 @@ class ActivityStaticConditionAdmin(admin.ModelAdmin):
     list_display = (
         'id',
         'condition_value',
+        'condition_ids',
         'des',
         'icon_one_type', 'icon_one_id', 'icon_one_amount',
         'icon_two_type', 'icon_two_id', 'icon_two_amount',
@@ -51,6 +53,7 @@ class ActivityStaticConditionAdmin(admin.ModelAdmin):
     fields = (
         'id',
         'condition_value',
+        'condition_ids',
         'des',
         ('icon_one_type', 'icon_one_id', 'icon_one_amount'),
         ('icon_two_type', 'icon_two_id', 'icon_two_amount'),
