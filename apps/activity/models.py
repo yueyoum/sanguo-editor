@@ -49,7 +49,7 @@ class ActivityStatic(models.Model):
     des = models.TextField("描述", blank=True)
 
     condition_type = models.IntegerField("条件类型", choices=CON_TYPE)
-    trigger_action_name = models.CharField("触发操作名称", choices=TRIGGER_ACTIONS, blank=True)
+    trigger_action_name = models.CharField("触发操作名称", max_length=255, choices=TRIGGER_ACTIONS, blank=True)
 
     start_time = models.DateTimeField("开始时间", null=True, blank=True,
                                       help_text="不填写为从开服算起")
@@ -82,22 +82,22 @@ class ActivityStatic(models.Model):
 class ActivityStaticCondition(models.Model):
     id = models.IntegerField("ID", primary_key=True)
 
-    condition_value = models.IntegerField("条件数值", null=True)
+    condition_value = models.IntegerField("条件数值", null=True, blank=True)
     condition_ids = models.CommaSeparatedIntegerField("条件ID列表", blank=True, max_length=255, help_text='id,id,id')
 
     des = models.TextField("描述", blank=True)
 
-    icon_one_type = models.ForeignKey('config.ResourceType', verbose_name='物品1类型', related_name='activity_condition_one', null=True)
-    icon_one_id = models.IntegerField("物品1ID", null=True)
-    icon_one_amount = models.IntegerField("物品1数量", default=1, null=True)
+    icon_one_type = models.ForeignKey('config.ResourceType', verbose_name='物品1类型', related_name='activity_condition_one', null=True, blank=True)
+    icon_one_id = models.IntegerField("物品1ID", null=True, blank=True)
+    icon_one_amount = models.IntegerField("物品1数量", default=1, null=True, blank=True)
 
-    icon_two_type = models.ForeignKey('config.ResourceType', verbose_name='物品2类型', related_name='activity_condition_two', null=True)
-    icon_two_id = models.IntegerField("物品2ID", null=True)
-    icon_two_amount = models.IntegerField("物品2数量", default=1, null=True)
+    icon_two_type = models.ForeignKey('config.ResourceType', verbose_name='物品2类型', related_name='activity_condition_two', null=True, blank=True)
+    icon_two_id = models.IntegerField("物品2ID", null=True, blank=True)
+    icon_two_amount = models.IntegerField("物品2数量", default=1, null=True, blank=True)
 
-    icon_three_type = models.ForeignKey('config.ResourceType', verbose_name='物品3类型', related_name='activity_condition_three', null=True)
-    icon_three_id = models.IntegerField("物品3ID", null=True)
-    icon_three_amount = models.IntegerField("物品3数量", default=1, null=True)
+    icon_three_type = models.ForeignKey('config.ResourceType', verbose_name='物品3类型', related_name='activity_condition_three', null=True, blank=True)
+    icon_three_id = models.IntegerField("物品3ID", null=True, blank=True)
+    icon_three_amount = models.IntegerField("物品3数量", default=1, null=True, blank=True)
 
     package = models.ForeignKey('goodspackage.Package', verbose_name='物品包')
 
