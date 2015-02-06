@@ -7,9 +7,11 @@ from apps.activity.models import ActivityStatic, ActivityStaticCondition
 
 class ActivityStaticAdmin(admin.ModelAdmin):
     list_display = (
-        'id', 'name',  'category', 'tp', 'mode', 'des', 'condition_type', 'trigger_action_name',
+        'id', 'name',  'category', 'tp', 'mode', 'des',
+        'condition_type', 'trigger_action_name', 'trigger_action_condition_ids',
         'start_time', 'continued_days', 'interval_days', 'interval_times',
         'current_des', 'conditions',
+        'package',
     )
 
     ordering = ('id',)
