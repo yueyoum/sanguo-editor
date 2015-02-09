@@ -20,6 +20,7 @@ class ActivityStatic(models.Model):
     MODE = (
         (1, "手动领取奖励"),
         (2, "系统发送邮件"),
+        (3, "获得物品加成"),
     )
 
     CON_TYPE = (
