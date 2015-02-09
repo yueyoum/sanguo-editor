@@ -12,6 +12,7 @@ class ActivityStaticAdmin(admin.ModelAdmin):
         'start_time', 'continued_days', 'interval_days', 'interval_times',
         'current_des', 'conditions',
         'package',
+        'mail_title', 'mail_content'
     )
 
     ordering = ('id',)

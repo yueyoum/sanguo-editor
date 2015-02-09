@@ -70,6 +70,9 @@ class ActivityStatic(models.Model):
 
     package = models.ForeignKey('goodspackage.Package', verbose_name='物品包', null=True, blank=True)
 
+    mail_title = models.TextField("邮件标题", blank=True)
+    mail_content = models.TextField("邮件内容", blank=True)
+
 
     def __unicode__(self):
         return self.name
