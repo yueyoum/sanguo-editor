@@ -9,11 +9,15 @@ class ActivityStatic(models.Model):
         (2, "武将召唤"),
         (3, "通过战役"),
         (4, "比武周排名"),
+
         (11, "累计充值"),
         (12, "累计消费元宝"),
         (13, "累积道具"),         # 积累一定数量的道具
         (14, "收集多个武将"),
-        (21, "获得物品加成")      # 干某个事情多获得产出
+
+        (21, "点将操作"),
+        (22, "开启宝箱操作"),
+        (23, "精英副本战斗操作"),
 
     )
 
@@ -35,12 +39,6 @@ class ActivityStatic(models.Model):
         (2, '常规活动'),
     )
 
-    TRIGGER_ACTIONS = (
-        ('get_hero', "点将"),
-        ('open_box', "开启宝箱"),
-        ('elite_stage_battle', "精英副本战斗")
-    )
-
 
     id = models.IntegerField("ID", primary_key=True)
     name = models.CharField("名字", max_length=64, unique=True)
@@ -51,8 +49,7 @@ class ActivityStatic(models.Model):
     des = models.TextField("描述", blank=True)
 
     condition_type = models.IntegerField("条件类型", choices=CON_TYPE)
-    trigger_action_name = models.CharField("触发操作名称", max_length=255, choices=TRIGGER_ACTIONS, blank=True)
-    trigger_action_condition_ids = models.CommaSeparatedIntegerField("触发操作条件ID列表", max_length=255, blank=True)
+    action_condition_ids = models.CommaSeparatedIntegerField("触发操作条件ID列表", max_length=255, blank=True)
 
     start_time = models.DateTimeField("开始时间", null=True, blank=True,
                                       help_text="不填写为从开服算起")
