@@ -16,6 +16,8 @@ class ActivityStaticAdmin(admin.ModelAdmin):
 
     ordering = ('id',)
 
+    list_filter = ('category', 'tp', 'mode')
+
 
 
 class FilterByActivity(SimpleListFilter):
