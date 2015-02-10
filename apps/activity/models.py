@@ -4,34 +4,10 @@ from django.db import models
 
 
 class ActivityStatic(models.Model):
-    TYPE = (
-        (1, "角色等级"),
-        (2, "武将召唤"),
-        (3, "通过战役"),
-        (4, "比武周排名"),
-
-        (11, "累计充值"),
-        (12, "累计消费元宝"),
-        (13, "累积道具"),         # 积累一定数量的道具
-        (14, "收集多个武将"),
-
-        (21, "点将操作"),
-        (22, "开启宝箱操作"),
-        (23, "精英副本战斗操作"),
-
-    )
-
     MODE = (
         (1, "手动领取奖励"),
         (2, "系统发送邮件"),
         (3, "获得物品加成"),
-    )
-
-    CON_TYPE = (
-        (1, '数值大于等于'),
-        (2, '数值小于等于'),
-        (3, '多个ID'),
-        (4, '操作触发'),
     )
 
     CATEGORY = (
@@ -44,14 +20,11 @@ class ActivityStatic(models.Model):
     name = models.CharField("名字", max_length=64, unique=True)
     category = models.IntegerField("种类", choices=CATEGORY)
 
-    tp = models.IntegerField("类型", choices=TYPE)
     mode = models.IntegerField("奖励模式", choices=MODE)
     des = models.TextField("描述", blank=True)
 
-    condition_type = models.IntegerField("条件类型", choices=CON_TYPE)
-    action_condition_ids = models.CommaSeparatedIntegerField("触发操作条件ID列表", max_length=255, blank=True)
 
-    start_time = models.DateTimeField("开始时间", null=True, blank=True,
+    start_time = models.DateField("开始时间", null=True, blank=True,
                                       help_text="不填写为从开服算起")
 
     continued_days = models.IntegerField("持续天数", default=0)
