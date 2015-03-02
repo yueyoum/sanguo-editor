@@ -57,7 +57,7 @@ class UnionBoss(models.Model):
 
     quality = models.IntegerField("品质")
     quality_name = models.CharField("品质名字", max_length=32)
-    tp_name = models.CharField("类型名字", max_length=32)
+    tp = models.IntegerField("类型")
 
 
 

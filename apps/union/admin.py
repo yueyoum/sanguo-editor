@@ -21,7 +21,7 @@ class UnionCheckinAdmin(admin.ModelAdmin):
 class UnionBossAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'image', 'union_level', 'contribute_points',
     'attack', 'defense', 'hp', 'crit', 'default_skill', 'skill', 'skill_rounds',
-    'quality', 'quality_name', 'tp_name',
+    'quality', 'quality_name', 'tp',
     )
 
 
