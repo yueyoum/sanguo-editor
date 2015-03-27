@@ -30,7 +30,6 @@ class Purchase(models.Model):
 
     rmb = models.IntegerField("人民币")
     rate = models.IntegerField("人民币对元宝汇率")
-    xintaibi = models.IntegerField("新台币")
 
     first_addition_sycee = models.IntegerField("首充额外元宝")
     addition_sycee = models.IntegerField("后续额外元宝")
