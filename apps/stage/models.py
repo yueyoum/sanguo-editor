@@ -103,6 +103,13 @@ class Stage(models.Model):
         return u'%d' % self.id
 
 
+    def clean(self):
+        try:
+            x = [int(i) for i in self.monsters.split(',')]
+            assert len(x) == 9
+        except:
+            raise ValidationError("Monsters id Error!")
+
     class Meta:
         db_table = 'stage'
         ordering = ('id',)
